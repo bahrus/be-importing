@@ -21,5 +21,5 @@ What this does:
 
 1.  If customElements.get('my-declarative-component') is undefined, it will fetch the HTML.  Otherwise, full stop.
 2.  Searches for a template with attribute shadowroot=open, and if if finds it, sets the shadowRoot
-3.  Strips the outer tag if it is my-ssr-component.
+3.  Strips the outer tag if it is my-declarative-component.
       1.  Copies the attributes of the outer tag to the target.
