@@ -12,7 +12,7 @@ The shadowroot attribute seems to have no effect when the HTML is inserted into 
 
 
 ```html
-<my-declarative-component be-importing=https://esm.run/my-declarative-component/my-declarative-component.html>
+<my-declarative-component be-importing=https://unpkg.com/my-declarative-component/my-declarative-component.html>
 <!-- light children -->
 </my-declarative-component>
 ```
