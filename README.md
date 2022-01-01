@@ -20,6 +20,6 @@ The shadowroot attribute seems to have no effect when the HTML is inserted into 
 What this does:
 
 1.  If customElements.get('my-declarative-component') is undefined, it will fetch the HTML.  Otherwise, full stop.
-2.  Searches for a template with attribute shadowroot=open, and if if finds it, sets the shadowRoot
+2.  Searches for a template with attribute shadowroot=open, and if it finds it, sets the shadowRoot
 3.  Strips the outer tag if it is my-declarative-component.
       1.  Copies the attributes of the outer tag to the target.

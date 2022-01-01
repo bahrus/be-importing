@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"sourceMap": false,
+		"experimentalDecorators": false,
+		"newLine": "LF",
+		"strict": true,
+		"watch": true
+	},
+	"files":[
+		"be-importing.ts"
+	],
+	"exclude":[
+		"node_modules"
+	]
+
+}
