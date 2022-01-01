@@ -12,6 +12,10 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "package-check": "package-check",
+    "serve": "node node_modules/xtal-test/serve.js"
+  },
+  "exports":{
     ".": "./be-importing.js",
     "./be-importing.js": "./be-importing.js"
   },
@@ -20,6 +24,7 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
+    "be-active": "0.0.13",
     "be-decorated": "0.0.57",
     "be-hive": "0.0.16"
   },

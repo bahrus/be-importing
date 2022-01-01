@@ -15,17 +15,20 @@ The shadowroot attribute seems to have no effect when the HTML is inserted into 
 <head>
       <link rel="preload" as="fetch" id="my-declarative-component/my-declarative-component.html" href="https://unpkg.com/my-declarative-component/my-declarative-component.html">
 </head>
-
-
+<body>
+...
 <my-declarative-component be-importing=my-declarative-component/my-declarative-component.html>
 <!-- light children -->
 </my-declarative-component>
+...
+</body>
+
 ```
 
 What this does:
 
 1.  If customElements.get('my-declarative-component') is undefined, it will fetch the HTML.  Otherwise, full stop.
 2.  If value matches link id, get the href from the link tag.  Otherwise, prepend with https://cdn.jsDelivr.net (or whatever is fastest), unless starts with a .
-3.  Once url is determind, fetch it.  User DOM Parser (without the includeShadowRoots flag?). Search for a template with attribute shadowroot=open, and if it finds it, sets the shadowRoot
+3.  Once url is determined, fetch it.  User DOM Parser (without the includeShadowRoots flag?). Search for a template with attribute shadowroot=open, and if it finds it, sets the shadowRoot
 3.  Strips the outer tag if it is my-declarative-component.
       1.  Copies the attributes of the outer tag to the target.

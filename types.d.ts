@@ -2,6 +2,7 @@ import {BeDecoratedProps} from 'be-decorated/types';
 
 export interface BeImportingVirtualProps{
     path: string;
+    baseCDN: string;
 }
 
 export interface BeImportingProps extends BeImportingVirtualProps{
