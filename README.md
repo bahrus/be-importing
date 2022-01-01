@@ -1,6 +1,6 @@
 # be-importing
 
-### Importing Static, Declarative HTML Web Components [TODO]
+### Importing Static, Declarative HTML Web Components
 
 With the advent of declarative shadow DOM, many useful web components that require little to no js could be less taxing on the browser if they were imported as pre-rendered HTML rather than JavaScript.
 

@@ -35,6 +35,21 @@ export class BeImportingController implements BeImportingActions{
             proxy.attachShadow({mode});
             proxy.shadowRoot!.appendChild(sr.content.cloneNode(true));
         }
+        const el = doc.querySelector(proxy.localName);
+        if(el !== null){
+            this.copyAttribs(el, proxy);
+        }
+    }
+
+    copyAttribs(from: Element, to: Element){
+        for(let i = 0, ii = from.attributes.length; i < ii; i++){
+            const attr = from.attributes[i];
+            try{
+                to.setAttribute(attr.name, attr.value);
+            }catch(e){
+                console.warn(e);
+            }
+        }
     }
 } 
 
