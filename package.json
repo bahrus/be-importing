@@ -2,19 +2,37 @@
   "name": "be-importing",
   "version": "0.0.0",
   "description": "With the advent of declarative shadow DOM, many useful web components that require little to no js could be less taxing on the browser if they were imported as pre-rendered HTML rather than JavaScript.",
-  "main": "index.js",
+  "main": "be-importing.js",
+  "module": "be-importing.js",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "custom-element",
+    "custom-elements"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    ".": "./be-importing.js",
+    "./be-importing.js": "./be-importing.js"
   },
+  "files": [
+    "*.*"
+  ],
+  "types": "types.d.ts",
   "dependencies": {
     "be-decorated": "0.0.57",
     "be-hive": "0.0.16"
+  },
+  "devDependencies": {
+    "xtal-test": "0.0.54",
+    "@skypack/package-check": "0.2.2",
+    "@custom-elements-manifest/analyzer": "0.5.7"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bahrus/be-importing.git"
   },
-  "author": "",
+  "author": "anderson.bruce.b@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bahrus/be-importing/issues"

@@ -9,5 +9,5 @@ export interface BeImportingProps extends BeImportingVirtualProps{
 }
 
 export interface BeImportingActions{
-    
+    onPath(self: this): void;
 }
