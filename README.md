@@ -8,7 +8,7 @@ The intent of declarative shadowDOM, I think, is to allow it to be used in the c
 
 How to specify this while also indicating what the light children and attribute settings should be.  be-loaded helps with this.
 
-The shadowroot attribute seems to have no effect when the HTML is inserted into the DOM tree post initial render.  
+The shadowroot attribute seems to have no effect when the HTML is inserted into the DOM tree post initial render.  (Note:  https://github.com/mfreed7/declarative-shadow-dom#mitigation )
 
 
 ```html
