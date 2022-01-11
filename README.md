@@ -29,6 +29,29 @@ so yes, this is yet another client-side include implementation, but one specific
 
 ```
 
+### Specifying an alternative web component name. [TODO]
+
+The syntax above only works if the declarative component defined in the server specifies the same tag name as the tag adorned by the be-importing attribute.
+
+If the remote web component uses a different tag name, then this needs to be spelled out:
+
+```html
+<head>
+      <link rel="preload" as="fetch" id="my-declarative-component/my-declarative-component.html" href="https://cdn.jsdelivr.net/my-declarative-component/my-declarative-component.html">
+</head>
+<body>
+...
+<my-alternative-component-name be-importing='{
+      "path": "my-declarative-component/my-declarative-component.html",
+      "tagName": "my-declarative-component"
+}'>
+<!-- light children -->
+</my-alternative-component-name>
+...
+</body>
+
+```
+
 What this does:
 
 1.  If customElements.get('my-declarative-component') is undefined, it will fetch the HTML.  Otherwise, full stop.
