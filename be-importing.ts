@@ -39,8 +39,8 @@ export class BeImportingController implements BeImportingActions{
         if(el !== null){
             this.copyAttribs(el, proxy);
         }
-        const script = sr.nextElementSibling as HTMLScriptElement;
-        if(script !== null && script.hasAttribute('nomodule')){
+        const script = doc.querySelector('script[nomodule]') as HTMLScriptElement;
+        if(script !== null){
             proxy.insertAdjacentElement('afterend', script);
         }
     }

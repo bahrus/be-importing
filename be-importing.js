@@ -39,8 +39,8 @@ export class BeImportingController {
         if (el !== null) {
             this.copyAttribs(el, proxy);
         }
-        const script = sr.nextElementSibling;
-        if (script !== null && script.hasAttribute('nomodule')) {
+        const script = doc.querySelector('script[nomodule]');
+        if (script !== null) {
             proxy.insertAdjacentElement('afterend', script);
         }
     }
