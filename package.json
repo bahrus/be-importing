@@ -25,11 +25,11 @@
   "types": "types.d.ts",
   "dependencies": {
     "be-active": "0.0.17",
-    "be-decorated": "0.0.65",
+    "be-decorated": "0.0.71",
     "be-hive": "0.0.20"
   },
   "devDependencies": {
-    "xtal-test": "0.0.54",
+    "xtal-test": "0.0.55",
     "@skypack/package-check": "0.2.2",
     "@custom-elements-manifest/analyzer": "0.5.7"
   },

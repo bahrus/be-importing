@@ -14,17 +14,20 @@ export class BeImportingController implements BeImportingActions{
         }
         inProgress[proxy.localName] = true;
         let href = path;
-        const linkPreload = (<any>self)[path] as HTMLLinkElement | undefined;
-        if(linkPreload !== undefined){
-            href = linkPreload.href;
-        }else if(path[0] === '/' || path[0] === '.'){
-            href = path;
-        }else{
-            if(!baseCDN.endsWith('/')){
-                baseCDN += '/';
-            }
-            href = baseCDN + path;
+        if(!path.includes('//')){
+            const linkPreload = (<any>self)[path] as HTMLLinkElement | undefined;
+            if(linkPreload !== undefined){
+                href = linkPreload.href;
+            }else if(path[0] === '/' || path[0] === '.'){
+                href = path;
+            }else{
+                if(!baseCDN.endsWith('/')){
+                    baseCDN += '/';
+                }
+                href = baseCDN + path;
+            }            
         }
+
         const resp = await fetch(href);
         const text = await resp.text();
         const dp = new DOMParser();

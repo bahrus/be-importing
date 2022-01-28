@@ -12,18 +12,20 @@ export class BeImportingController {
         }
         inProgress[proxy.localName] = true;
         let href = path;
-        const linkPreload = self[path];
-        if (linkPreload !== undefined) {
-            href = linkPreload.href;
-        }
-        else if (path[0] === '/' || path[0] === '.') {
-            href = path;
-        }
-        else {
-            if (!baseCDN.endsWith('/')) {
-                baseCDN += '/';
+        if (!path.includes('//')) {
+            const linkPreload = self[path];
+            if (linkPreload !== undefined) {
+                href = linkPreload.href;
             }
-            href = baseCDN + path;
+            else if (path[0] === '/' || path[0] === '.') {
+                href = path;
+            }
+            else {
+                if (!baseCDN.endsWith('/')) {
+                    baseCDN += '/';
+                }
+                href = baseCDN + path;
+            }
         }
         const resp = await fetch(href);
         const text = await resp.text();
