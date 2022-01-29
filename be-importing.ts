@@ -35,13 +35,13 @@ export class BeImportingController implements BeImportingActions{
             const mode = sr.getAttribute('shadowroot') as 'open' | 'closed';
             proxy.attachShadow({mode});
             const headerSD = proxy.querySelector('template[slot="header-sd"]') as HTMLTemplateElement;
-            if(headerSD !== undefined){
+            if(headerSD !== null){
                 proxy.shadowRoot!.appendChild(headerSD.content.cloneNode(true));
                 headerSD.remove();
             }
             proxy.shadowRoot!.appendChild(sr.content.cloneNode(true));
             const footerSD = proxy.querySelector('template[slot="footer-sd"]') as HTMLTemplateElement;
-            if(footerSD !== undefined){
+            if(footerSD !== null){
                 proxy.shadowRoot!.appendChild(footerSD.content.cloneNode(true));
                 footerSD.remove();
             }

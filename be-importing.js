@@ -33,13 +33,13 @@ export class BeImportingController {
             const mode = sr.getAttribute('shadowroot');
             proxy.attachShadow({ mode });
             const headerSD = proxy.querySelector('template[slot="header-sd"]');
-            if (headerSD !== undefined) {
+            if (headerSD !== null) {
                 proxy.shadowRoot.appendChild(headerSD.content.cloneNode(true));
                 headerSD.remove();
             }
             proxy.shadowRoot.appendChild(sr.content.cloneNode(true));
             const footerSD = proxy.querySelector('template[slot="footer-sd"]');
-            if (footerSD !== undefined) {
+            if (footerSD !== null) {
                 proxy.shadowRoot.appendChild(footerSD.content.cloneNode(true));
                 footerSD.remove();
             }
