@@ -1,9 +1,13 @@
 import {BeDecoratedProps} from 'be-decorated/types';
 
 export interface BeImportingVirtualProps{
-    path: string;
-    baseCDN: string;
-    version: string;
+    path?: string;
+    baseCDN?: string;
+    //version?: string;
+    headerHTML?: string;
+    headerTemplate?: HTMLTemplateElement;
+    footerHTML?: string;
+    footerTemplate?: HTMLTemplateElement;
 }
 
 export interface BeImportingProps extends BeImportingVirtualProps{
@@ -12,4 +16,6 @@ export interface BeImportingProps extends BeImportingVirtualProps{
 
 export interface BeImportingActions{
     onPath(self: this): void;
+    onHeaderHTML(self: this): void;
+    onFooterHTML(self: this): void;
 }

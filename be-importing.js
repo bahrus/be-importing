@@ -3,7 +3,7 @@ import { register } from "be-hive/register.js";
 import('be-active/be-active.js');
 const inProgress = {};
 export class BeImportingController {
-    async onPath({ path, proxy, baseCDN }) {
+    async onPath({ path, proxy, baseCDN, headerTemplate, footerTemplate }) {
         if (customElements.get(proxy.localName) !== undefined) {
             return;
         }
@@ -12,13 +12,10 @@ export class BeImportingController {
         }
         inProgress[proxy.localName] = true;
         let href = path;
-        if (!path.includes('//')) {
+        if (!path.includes('//') && path[0] !== '/' && path[0] !== '.') {
             const linkPreload = self[path];
             if (linkPreload !== undefined) {
                 href = linkPreload.href;
-            }
-            else if (path[0] === '/' || path[0] === '.') {
-                href = path;
             }
             else {
                 if (!baseCDN.endsWith('/')) {
@@ -35,7 +32,13 @@ export class BeImportingController {
         if (sr !== null) {
             const mode = sr.getAttribute('shadowroot');
             proxy.attachShadow({ mode });
+            if (headerTemplate !== undefined) {
+                proxy.shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
+            }
             proxy.shadowRoot.appendChild(sr.content.cloneNode(true));
+            if (footerTemplate !== undefined) {
+                proxy.shadowRoot.appendChild(footerTemplate.content.cloneNode(true));
+            }
         }
         const el = doc.querySelector(proxy.localName);
         if (el !== null) {
@@ -45,6 +48,16 @@ export class BeImportingController {
         if (script !== null) {
             proxy.insertAdjacentElement('afterend', script);
         }
+    }
+    onFooterHTML({ proxy, footerHTML }) {
+        const templ = document.createElement('template');
+        templ.innerHTML = footerHTML;
+        proxy.footerTemplate = templ;
+    }
+    onHeaderHTML({ proxy, headerHTML }) {
+        const templ = document.createElement('template');
+        templ.innerHTML = headerHTML;
+        proxy.headerTemplate = templ;
     }
     copyAttribs(from, to) {
         for (let i = 0, ii = from.attributes.length; i < ii; i++) {
@@ -68,13 +81,15 @@ define({
             upgrade,
             ifWantsToBe,
             primaryProp: 'path',
-            virtualProps: ['path', 'baseCDN'],
+            virtualProps: ['path', 'baseCDN', 'headerHTML', 'headerTemplate', 'footerHTML', 'footerTemplate'],
             proxyPropDefaults: {
                 baseCDN: 'https://cdn.jsdelivr.net/npm/',
             }
         },
         actions: {
-            onPath: 'path'
+            onPath: 'path',
+            onHeaderHTML: 'headerHTML',
+            onFooterHTML: 'footerHTML',
         }
     },
     complexPropDefaults: {

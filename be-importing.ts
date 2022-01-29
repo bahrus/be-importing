@@ -5,7 +5,7 @@ import('be-active/be-active.js');
 
 const inProgress : {[key: string]: boolean} = {};
 export class BeImportingController implements BeImportingActions{
-    async onPath({path, proxy, baseCDN}: this) {
+    async onPath({path, proxy, baseCDN, headerTemplate, footerTemplate}: this) {
         if(customElements.get(proxy.localName) !== undefined){
             return;
         }
@@ -13,18 +13,16 @@ export class BeImportingController implements BeImportingActions{
             return;
         }
         inProgress[proxy.localName] = true;
-        let href = path;
-        if(!path.includes('//')){
-            const linkPreload = (<any>self)[path] as HTMLLinkElement | undefined;
+        let href = path!;
+        if(!path!.includes('//') && path![0] !== '/' && path![0] !== '.'){
+            const linkPreload = (<any>self)[path!] as HTMLLinkElement | undefined;
             if(linkPreload !== undefined){
                 href = linkPreload.href;
-            }else if(path[0] === '/' || path[0] === '.'){
-                href = path;
             }else{
-                if(!baseCDN.endsWith('/')){
+                if(!baseCDN!.endsWith('/')){
                     baseCDN += '/';
                 }
-                href = baseCDN + path;
+                href = baseCDN! + path;
             }            
         }
 
@@ -36,7 +34,14 @@ export class BeImportingController implements BeImportingActions{
         if(sr !== null){
             const mode = sr.getAttribute('shadowroot') as 'open' | 'closed';
             proxy.attachShadow({mode});
+            if(headerTemplate !== undefined){
+                proxy.shadowRoot!.appendChild(headerTemplate.content.cloneNode(true));
+            }
             proxy.shadowRoot!.appendChild(sr.content.cloneNode(true));
+            if(footerTemplate !== undefined){
+                proxy.shadowRoot!.appendChild(footerTemplate.content.cloneNode(true));
+            }
+
         }
         const el = doc.querySelector(proxy.localName);
         if(el !== null){
@@ -46,6 +51,18 @@ export class BeImportingController implements BeImportingActions{
         if(script !== null){
             proxy.insertAdjacentElement('afterend', script);
         }
+    }
+
+    onFooterHTML({proxy, footerHTML}: this): void {
+        const templ = document.createElement('template');
+        templ.innerHTML = footerHTML!;
+        proxy.footerTemplate = templ;
+    }
+
+    onHeaderHTML({proxy, headerHTML}: this): void {
+        const templ = document.createElement('template');
+        templ.innerHTML = headerHTML!;
+        proxy.headerTemplate = templ;
     }
 
     copyAttribs(from: Element, to: Element){
@@ -75,13 +92,15 @@ define<BeImportingProps & BeDecoratedProps<BeImportingProps, BeImportingActions>
             upgrade,
             ifWantsToBe,
             primaryProp: 'path',
-            virtualProps: ['path', 'baseCDN'],
+            virtualProps: ['path', 'baseCDN', 'headerHTML', 'headerTemplate', 'footerHTML', 'footerTemplate'],
             proxyPropDefaults:{
                 baseCDN: 'https://cdn.jsdelivr.net/npm/',
             }
         },
         actions:{
-            onPath: 'path'
+            onPath: 'path',
+            onHeaderHTML: 'headerHTML',
+            onFooterHTML: 'footerHTML',
         }
     },
     complexPropDefaults:{
