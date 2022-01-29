@@ -1,6 +1,6 @@
 # be-importing
 
-### Importing Static, Declarative HTML Web Components
+## Importing Static, Declarative HTML Web Components
 
 With the advent of declarative shadow DOM, many useful web components that require little to no js could be less taxing on the browser if they were imported as pre-rendered HTML rather than JavaScript.
 
@@ -28,6 +28,27 @@ so yes, this is yet another client-side include implementation, but one specific
 </body>
 
 ```
+
+## Special Shadow DOM slots
+
+To insert "header" HTML into the ShadowDOM before the imported HTML, add a template with slot=header-sd inside the tag.  Likewise to append HTML after the imported shadow DOM:
+
+```html
+<my-declarative-component>
+      <template slot=header-sd>
+            <header>
+                  <h1>My Header</h1>
+            </header>
+      </template>
+      <template slot=footer-sd>
+            <footer>
+                  <h1>My Footer</h1>
+            </footer>
+      </template>
+</my-declarative-component>
+```
+
+The templates are removed once imported.
 
 ### Specifying an alternative web component name. [TODO]
 

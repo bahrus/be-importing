@@ -3,7 +3,7 @@ import { register } from "be-hive/register.js";
 import('be-active/be-active.js');
 const inProgress = {};
 export class BeImportingController {
-    async onPath({ path, proxy, baseCDN, headerHTML, footerHTML }) {
+    async onPath({ path, proxy, baseCDN }) {
         if (customElements.get(proxy.localName) !== undefined) {
             return;
         }
@@ -32,14 +32,16 @@ export class BeImportingController {
         if (sr !== null) {
             const mode = sr.getAttribute('shadowroot');
             proxy.attachShadow({ mode });
-            if (headerHTML !== undefined) {
-                proxy.shadowRoot.innerHTML = headerHTML;
+            const headerSD = proxy.querySelector('template[slot="header-sd"]');
+            if (headerSD !== undefined) {
+                proxy.shadowRoot.appendChild(headerSD.content.cloneNode(true));
+                headerSD.remove();
             }
             proxy.shadowRoot.appendChild(sr.content.cloneNode(true));
-            if (footerHTML !== undefined) {
-                const footerTemplate = document.createElement('template');
-                footerTemplate.innerHTML = footerHTML;
-                proxy.shadowRoot.appendChild(footerTemplate.content.cloneNode(true));
+            const footerSD = proxy.querySelector('template[slot="footer-sd"]');
+            if (footerSD !== undefined) {
+                proxy.shadowRoot.appendChild(footerSD.content.cloneNode(true));
+                footerSD.remove();
             }
         }
         const el = doc.querySelector(proxy.localName);

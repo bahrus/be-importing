@@ -5,7 +5,7 @@ import('be-active/be-active.js');
 
 const inProgress : {[key: string]: boolean} = {};
 export class BeImportingController implements BeImportingActions{
-    async onPath({path, proxy, baseCDN, headerHTML, footerHTML}: this) {
+    async onPath({path, proxy, baseCDN}: this) {
         if(customElements.get(proxy.localName) !== undefined){
             return;
         }
@@ -34,15 +34,18 @@ export class BeImportingController implements BeImportingActions{
         if(sr !== null){
             const mode = sr.getAttribute('shadowroot') as 'open' | 'closed';
             proxy.attachShadow({mode});
-            if(headerHTML !== undefined){
-                proxy.shadowRoot!.innerHTML = headerHTML;
+            const headerSD = proxy.querySelector('template[slot="header-sd"]') as HTMLTemplateElement;
+            if(headerSD !== undefined){
+                proxy.shadowRoot!.appendChild(headerSD.content.cloneNode(true));
+                headerSD.remove();
             }
             proxy.shadowRoot!.appendChild(sr.content.cloneNode(true));
-            if(footerHTML !== undefined){
-                const footerTemplate = document.createElement('template');
-                footerTemplate.innerHTML = footerHTML;
-                proxy.shadowRoot!.appendChild(footerTemplate.content.cloneNode(true));
+            const footerSD = proxy.querySelector('template[slot="footer-sd"]') as HTMLTemplateElement;
+            if(footerSD !== undefined){
+                proxy.shadowRoot!.appendChild(footerSD.content.cloneNode(true));
+                footerSD.remove();
             }
+
 
         }
         const el = doc.querySelector(proxy.localName);
