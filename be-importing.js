@@ -1,9 +1,8 @@
 import { define } from 'be-decorated/be-decorated.js';
 import { register } from "be-hive/register.js";
-import('be-active/be-active.js');
 const inProgress = {};
 export class BeImportingController {
-    async onPath({ path, proxy, baseCDN }) {
+    async onPath({ path, proxy, baseCDN, beBased }) {
         if (customElements.get(proxy.localName) !== undefined) {
             return;
         }
@@ -36,6 +35,10 @@ export class BeImportingController {
             if (headerSD !== null) {
                 proxy.shadowRoot.appendChild(headerSD.content.cloneNode(true));
                 headerSD.remove();
+            }
+            if (beBased !== undefined) {
+                const { processRules } = await import('be-based/processRules.js');
+                processRules({ proxy: sr, rules: beBased.rules });
             }
             proxy.shadowRoot.appendChild(sr.content.cloneNode(true));
             const footerSD = proxy.querySelector('template[slot="footer-sd"]');

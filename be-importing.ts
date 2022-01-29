@@ -1,11 +1,11 @@
 import {define, BeDecoratedProps} from 'be-decorated/be-decorated.js';
 import {BeImportingVirtualProps, BeImportingActions, BeImportingProps} from './types';
 import {register} from "be-hive/register.js";
-import('be-active/be-active.js');
+
 
 const inProgress : {[key: string]: boolean} = {};
 export class BeImportingController implements BeImportingActions{
-    async onPath({path, proxy, baseCDN}: this) {
+    async onPath({path, proxy, baseCDN, beBased}: this) {
         if(customElements.get(proxy.localName) !== undefined){
             return;
         }
@@ -38,6 +38,10 @@ export class BeImportingController implements BeImportingActions{
             if(headerSD !== null){
                 proxy.shadowRoot!.appendChild(headerSD.content.cloneNode(true));
                 headerSD.remove();
+            }
+            if(beBased !== undefined){
+                const {processRules} = await import('be-based/processRules.js');
+                processRules({proxy: sr, rules: beBased.rules});
             }
             proxy.shadowRoot!.appendChild(sr.content.cloneNode(true));
             const footerSD = proxy.querySelector('template[slot="footer-sd"]') as HTMLTemplateElement;
