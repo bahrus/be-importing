@@ -87,7 +87,7 @@ define<BeImportingProps & BeDecoratedProps<BeImportingProps, BeImportingActions>
             upgrade,
             ifWantsToBe,
             primaryProp: 'path',
-            virtualProps: ['path', 'baseCDN', 'headerHTML', 'footerHTML', ],
+            virtualProps: ['path', 'baseCDN', ],
             proxyPropDefaults:{
                 baseCDN: 'https://cdn.jsdelivr.net/npm/',
             }
