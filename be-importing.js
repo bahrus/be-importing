@@ -78,7 +78,7 @@ define({
             upgrade,
             ifWantsToBe,
             primaryProp: 'path',
-            virtualProps: ['path', 'baseCDN',],
+            virtualProps: ['path', 'baseCDN', 'beBased'],
             proxyPropDefaults: {
                 baseCDN: 'https://cdn.jsdelivr.net/npm/',
             }
