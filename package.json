@@ -25,7 +25,7 @@
   "types": "types.d.ts",
   "dependencies": {
     "be-active": "0.0.18",
-    "be-based": "0.0.6",
+    "be-based": "0.0.7",
     "be-decorated": "0.0.72",
     "be-hive": "0.0.21"
   },
