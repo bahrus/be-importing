@@ -27,6 +27,7 @@
     "be-active": "0.0.20",
     "be-based": "0.0.8",
     "be-decorated": "0.0.78",
+    "be-observant": "0.0.92",
     "be-hive": "0.0.27"
   },
   "devDependencies": {

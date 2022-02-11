@@ -9,6 +9,8 @@ export interface BeImportingVirtualProps{
     //TODO:  Does it make sense to do a transform?  what is the "host"?
     // transform?: any;
     // transformPlugins?: {[key: string]: TransformPluginSettings | string};
+    model: any,
+    modelSrc: string | IObserve,
 }
 
 export interface BeImportingProps extends BeImportingVirtualProps{
