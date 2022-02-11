@@ -50,6 +50,10 @@ To insert "header" HTML into the ShadowDOM before the imported HTML, add a templ
 
 The templates are removed once imported.
 
+### Perform preimport transform(s) with DTR [TODO]
+
+### Perform preimport transform with XSLT [TODO]
+
 ### Specifying an alternative web component name. [TODO]
 
 The syntax above only works if the declarative component defined in the server specifies the same tag name as the tag adorned by the be-importing attribute.

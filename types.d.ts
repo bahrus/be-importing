@@ -1,6 +1,7 @@
 import {BeDecoratedProps} from 'be-decorated/types';
 import {BeBasedVirtualProps} from 'be-based/types';
 import {TransformPluginSettings} from 'trans-render/lib/types';
+import {IObserve} from 'be-observant/types';
 
 export interface BeImportingVirtualProps{
     path?: string;
