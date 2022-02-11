@@ -24,10 +24,10 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-active": "0.0.18",
-    "be-based": "0.0.7",
-    "be-decorated": "0.0.72",
-    "be-hive": "0.0.21"
+    "be-active": "0.0.20",
+    "be-based": "0.0.8",
+    "be-decorated": "0.0.78",
+    "be-hive": "0.0.27"
   },
   "devDependencies": {
     "xtal-test": "0.0.55",
