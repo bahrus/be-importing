@@ -48,7 +48,7 @@ To insert "header" HTML into the ShadowDOM before the imported HTML, add a templ
 </my-declarative-component>
 ```
 
-The reason for needing to insert templates is to allow third party content providers to be themed locally, and to include links to the source of the code.
+The reason for needing to insert templates is to allow third party content providers to be themed locally, and to include links to the source of the content.
 
 The templates are removed once imported.
 
