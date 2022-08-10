@@ -52,6 +52,8 @@ The reason for needing to insert templates is to allow third party content provi
 
 The templates are removed once imported.
 
+However, I think a better solution to the use cases above is provided by the next two TODO items.
+
 ### Perform preimport transform(s) with DTR [TODO]
 
 ### Perform preimport transform with XSLT [TODO]
