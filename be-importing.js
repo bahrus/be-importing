@@ -26,6 +26,7 @@ export class BeImportingController {
         const resp = await fetch(href);
         const text = await resp.text();
         const dp = new DOMParser();
+        //const doc = dp.parseFromString(text, 'text/html', {includeShadowRoots: true});
         const doc = dp.parseFromString(text, 'text/html');
         const sr = doc.querySelector('template[shadowroot]');
         if (sr !== null) {
@@ -36,10 +37,10 @@ export class BeImportingController {
                 proxy.shadowRoot.appendChild(headerSD.content.cloneNode(true));
                 headerSD.remove();
             }
-            if (beBased !== undefined) {
-                const { processRules } = await import('be-based/processRules.js');
-                processRules({ proxy: sr, rules: beBased.rules });
-            }
+            // if(beBased !== undefined){
+            //     const {processRules} = await import('be-based/processRules.js');
+            //     processRules({proxy: sr, rules: beBased.rules});
+            // }
             proxy.shadowRoot.appendChild(sr.content.cloneNode(true));
             const footerSD = proxy.querySelector('template[slot="footer-sd"]');
             if (footerSD !== null) {

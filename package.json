@@ -13,7 +13,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "package-check": "package-check",
-    "serve": "node node_modules/xtal-test/serve.js"
+    "serve": "node node_modules/may-it-serve/serve.js"
   },
   "exports": {
     ".": "./be-importing.js",
@@ -24,14 +24,13 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-active": "0.0.35",
-    "be-based": "0.0.19",
-    "be-decorated": "0.0.128",
-    "be-observant": "0.0.130",
-    "be-hive": "0.0.50"
+    "be-active": "0.0.37",
+    "be-decorated": "0.0.131",
+    "be-observant": "0.0.131",
+    "be-hive": "0.0.52"
   },
   "devDependencies": {
-    "xtal-test": "0.0.56",
+    "may-it-serve": "0.0.2",
     "@skypack/package-check": "0.2.2",
     "@custom-elements-manifest/analyzer": "0.6.4"
   },

@@ -1,5 +1,11 @@
 # be-importing (WIP)
 
+<a href="https://nodei.co/npm/be-importing/"><img src="https://nodei.co/npm/be-importing.png"></a>
+
+[![How big is this package in your project?](https://img.shields.io/bundlephobia/minzip/be-importing?style=for-the-badge)](https://bundlephobia.com/result?p=be-importing)
+
+<img src="http://img.badgesize.io/https://cdn.jsdelivr.net/npm/be-importing?compression=gzip">
+
 ## Importing Static, Declarative HTML Web Components
 
 With the advent of declarative shadow DOM, many useful web components that require little to no js could be less taxing on the browser if they were imported as pre-rendered HTML rather than JavaScript.
