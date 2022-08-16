@@ -2,7 +2,7 @@ import { define } from 'be-decorated/be-decorated.js';
 import { register } from "be-hive/register.js";
 const inProgress = {};
 export class BeImportingController {
-    async onPath({ path, proxy, baseCDN, beBased }) {
+    async onPath({ path, proxy, baseCDN, transform, transformPlugins }) {
         if (customElements.get(proxy.localName) !== undefined) {
             return;
         }
@@ -26,7 +26,6 @@ export class BeImportingController {
         const resp = await fetch(href);
         const text = await resp.text();
         const dp = new DOMParser();
-        //const doc = dp.parseFromString(text, 'text/html', {includeShadowRoots: true});
         const iPosOfOpenTempl = text.indexOf('<template ');
         const iPosOfEndOfOpenTempl = text.indexOf('>', iPosOfOpenTempl);
         const iPosOfLastClosedTempl = text.lastIndexOf('</template>');
@@ -34,6 +33,14 @@ export class BeImportingController {
         const textOutsideTemplate = text.substring(0, iPosOfEndOfOpenTempl + 1) + text.substring(iPosOfLastClosedTempl);
         const docOutsideTemplate = dp.parseFromString(textOutsideTemplate, 'text/html');
         const docInsideTemplate = dp.parseFromString(textInsideTemplate, 'text/html', { includeShadowRoots: true });
+        if (transform !== undefined) {
+            const { DTR } = await import('trans-render/lib/DTR.js');
+            await DTR.transform(docInsideTemplate, {
+                match: transform,
+                host: proxy,
+                plugins: { ...transformPlugins },
+            });
+        }
         const shadowRootTempl = docOutsideTemplate.querySelector('template[shadowroot]');
         if (shadowRootTempl !== null) {
             const mode = shadowRootTempl.getAttribute('shadowroot');
