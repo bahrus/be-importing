@@ -35,13 +35,15 @@ export class BeImportingController {
         const docOutsideTemplate = dp.parseFromString(textOutsideTemplate, 'text/html');
         const docInsideTemplate = dp.parseFromString(textInsideTemplate, 'text/html', { includeShadowRoots: true });
         if (transform !== undefined) {
-            const { DTR } = await import('trans-render/lib/DTR.js');
             this.#ctx = {
                 match: transform,
                 host: modelVal,
                 plugins: { ...transformPlugins },
             };
-            await DTR.transform(docInsideTemplate, this.#ctx);
+            if (modelVal !== undefined) {
+                const { DTR } = await import('trans-render/lib/DTR.js');
+                await DTR.transform(docInsideTemplate, this.#ctx);
+            }
         }
         const shadowRootTempl = docOutsideTemplate.querySelector('template[shadowroot]');
         if (shadowRootTempl !== null) {
