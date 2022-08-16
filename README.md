@@ -14,7 +14,6 @@ The intent of declarative shadowDOM, I think, is to allow it to be used in the c
 
 How to specify this while also indicating what the light children and attribute settings should be.  be-importing helps with this.
 
-The shadowroot attribute seems to have no effect when the HTML is inserted into the DOM tree post initial render.  (Note:  https://github.com/mfreed7/declarative-shadow-dom#mitigation indicates there many be an option with the DOM Parser to help with that. )
 
 Another benefit of defining something like this on the client side, is the same syntax could be used on the server in order to know from where to get (and cache?) the HTML when doing "true" (I guess) SSR, embedding the declarative HTML into the live stream (with a first content paint performance gain, at the expense of fine grained caching).
 
