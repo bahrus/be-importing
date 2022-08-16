@@ -50,7 +50,7 @@ export class BeImportingController {
             //     const {processRules} = await import('be-based/processRules.js');
             //     processRules({proxy: sr, rules: beBased.rules});
             // }
-            proxy.shadowRoot.append(docInsideTemplate.body);
+            proxy.shadowRoot.append(...docInsideTemplate.body.children);
             // const footerSD = proxy.querySelector('template[slot="footer-sd"]') as HTMLTemplateElement;
             // if(footerSD !== null){
             //     proxy.shadowRoot!.appendChild(footerSD.content.cloneNode(true));
