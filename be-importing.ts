@@ -1,11 +1,12 @@
 import {define, BeDecoratedProps} from 'be-decorated/be-decorated.js';
 import {BeImportingVirtualProps, BeImportingActions, BeImportingProps} from './types';
 import {register} from "be-hive/register.js";
-
+import {RenderContext} from 'trans-render/lib/types';
 
 const inProgress : {[key: string]: boolean} = {};
 export class BeImportingController implements BeImportingActions{
-    async onPath({path, proxy, baseCDN, transform, transformPlugins}: this) {
+    #ctx: RenderContext | undefined;
+    async onPath({path, proxy, baseCDN, transform, transformPlugins, modelVal}: this) {
         if(customElements.get(proxy.localName) !== undefined){
             return;
         }
@@ -38,11 +39,12 @@ export class BeImportingController implements BeImportingActions{
         const docInsideTemplate = dp.parseFromString(textInsideTemplate, 'text/html', {includeShadowRoots: true});
         if(transform !== undefined){
             const {DTR} = await import('trans-render/lib/DTR.js');
-            await DTR.transform(docInsideTemplate, {
+            this.#ctx = {
                 match: transform,
-                host: proxy as any as HTMLElement,
+                host: modelVal as HTMLElement,
                 plugins: {...transformPlugins},
-            });
+            };
+            await DTR.transform(docInsideTemplate, this.#ctx);
         }
         const shadowRootTempl = docOutsideTemplate.querySelector('template[shadowroot]') as HTMLTemplateElement;
         if(shadowRootTempl !== null){
@@ -60,7 +62,15 @@ export class BeImportingController implements BeImportingActions{
         }
     }
 
-
+    async doTransform({transform, modelVal, proxy}: this) {
+        if(this.#ctx === undefined) return;
+        const root = proxy.shadowRoot;
+        if(root === null) return;
+        this.#ctx.match = transform;
+        this.#ctx.host = modelVal;
+        const {DTR} = await import('trans-render/lib/DTR.js');
+        await DTR.transform(root, this.#ctx);
+    }
 
     copyAttribs(from: Element, to: Element){
         for(let i = 0, ii = from.attributes.length; i < ii; i++){
@@ -71,6 +81,11 @@ export class BeImportingController implements BeImportingActions{
                 console.warn(e);
             }
         }
+    }
+
+    async onModel({model, proxy}: this){
+        const {hookUp} = await import('be-observant/hookup.js');
+        hookUp(model, proxy, 'modelVal');
     }
 } 
 
@@ -89,14 +104,17 @@ define<BeImportingProps & BeDecoratedProps<BeImportingProps, BeImportingActions>
             upgrade,
             ifWantsToBe,
             primaryProp: 'path',
-            virtualProps: ['path', 'baseCDN', 'beBased'],
+            virtualProps: ['path', 'baseCDN', 'model', 'modelVal', 'transform', 'transformPlugins'],
             proxyPropDefaults:{
                 baseCDN: 'https://cdn.jsdelivr.net/npm/',
             }
         },
         actions:{
             onPath: 'path',
-
+            onModel: 'model',
+            doTransform: {
+                ifAllOf: ['modelVal', 'transform']
+            }
         }
     },
     complexPropDefaults:{

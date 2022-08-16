@@ -35,32 +35,10 @@ So yes, this is yet another client-side include implementation, but one specific
 
 ```
 
-## Special Shadow DOM slots
 
-To insert "header" HTML into the ShadowDOM before the imported HTML, add a template with slot=header-sd inside the tag.  Likewise to append HTML after the imported shadow DOM:
+### Perform preimport transform(s) with DTR 
 
-```html
-<my-declarative-component be-importing=my-declarative-component/my-declarative-component.html>
-      <template slot=header-sd>
-            <header>
-                  <h1>My Header</h1>
-            </header>
-      </template>
-      <template slot=footer-sd>
-            <footer>
-                  <h1>My Footer</h1>
-            </footer>
-      </template>
-</my-declarative-component>
-```
-
-The reason for needing to insert templates is to allow third party content providers to be themed locally, and to include links to the source of the content.
-
-The templates are removed once imported.
-
-However, I think a better solution to the use cases above is provided by the next two TODO items.
-
-### Perform preimport transform(s) with DTR [TODO]
+[TODO]  Document
 
 ### Perform preimport transform with XSLT [TODO]
 

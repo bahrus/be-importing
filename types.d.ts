@@ -9,9 +9,9 @@ export interface BeImportingVirtualProps{
     //beBased?: BeBasedVirtualProps;
     //TODO:  Does it make sense to do a transform?  what is the "host"?
     transform?: any;
-    transformPlugins?: {[key: string]: TransformPluginSettings | string};
-    model: any,
-    modelSrc: string | IObserve,
+    transformPlugins?: {[key: string]: boolean};
+    model: IObserve,
+    modelVal: any,
 }
 
 export interface BeImportingProps extends BeImportingVirtualProps{
@@ -20,4 +20,6 @@ export interface BeImportingProps extends BeImportingVirtualProps{
 
 export interface BeImportingActions{
     onPath(self: this): void;
+    onModel(self: this): void;
+    doTransform(self: this): void;
 }
