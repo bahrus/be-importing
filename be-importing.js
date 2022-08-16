@@ -27,32 +27,41 @@ export class BeImportingController {
         const text = await resp.text();
         const dp = new DOMParser();
         //const doc = dp.parseFromString(text, 'text/html', {includeShadowRoots: true});
-        const doc = dp.parseFromString(text, 'text/html');
-        const sr = doc.querySelector('template[shadowroot]');
-        if (sr !== null) {
-            const mode = sr.getAttribute('shadowroot');
+        const iPosOfOpenTempl = text.indexOf('<template ');
+        const iPosOfEndOfOpenTempl = text.indexOf('>', iPosOfOpenTempl);
+        const iPosOfLastClosedTempl = text.lastIndexOf('</template>');
+        const textInsideTemplate = text.substring(iPosOfEndOfOpenTempl + 1, iPosOfLastClosedTempl);
+        console.log(textInsideTemplate);
+        const textOutsideTemplate = text.substring(0, iPosOfEndOfOpenTempl + 1) + text.substring(iPosOfLastClosedTempl);
+        console.log(textOutsideTemplate);
+        const docOutsideTemplate = dp.parseFromString(textOutsideTemplate, 'text/html');
+        const docInsideTemplate = dp.parseFromString(textInsideTemplate, 'text/html', { includeShadowRoots: true });
+        //const doc = dp.parseFromString(text, 'text/html');
+        const shadowRootTempl = docOutsideTemplate.querySelector('template[shadowroot]');
+        if (shadowRootTempl !== null) {
+            const mode = shadowRootTempl.getAttribute('shadowroot');
             proxy.attachShadow({ mode });
-            const headerSD = proxy.querySelector('template[slot="header-sd"]');
-            if (headerSD !== null) {
-                proxy.shadowRoot.appendChild(headerSD.content.cloneNode(true));
-                headerSD.remove();
-            }
+            // const headerSD = proxy.querySelector('template[slot="header-sd"]') as HTMLTemplateElement;
+            // if(headerSD !== null){
+            //     proxy.shadowRoot!.appendChild(headerSD.content.cloneNode(true));
+            //     headerSD.remove();
+            // }
             // if(beBased !== undefined){
             //     const {processRules} = await import('be-based/processRules.js');
             //     processRules({proxy: sr, rules: beBased.rules});
             // }
-            proxy.shadowRoot.appendChild(sr.content.cloneNode(true));
-            const footerSD = proxy.querySelector('template[slot="footer-sd"]');
-            if (footerSD !== null) {
-                proxy.shadowRoot.appendChild(footerSD.content.cloneNode(true));
-                footerSD.remove();
-            }
+            proxy.shadowRoot.append(docInsideTemplate.body);
+            // const footerSD = proxy.querySelector('template[slot="footer-sd"]') as HTMLTemplateElement;
+            // if(footerSD !== null){
+            //     proxy.shadowRoot!.appendChild(footerSD.content.cloneNode(true));
+            //     footerSD.remove();
+            // }
         }
-        const el = doc.querySelector(proxy.localName);
+        const el = docOutsideTemplate.querySelector(proxy.localName);
         if (el !== null) {
             this.copyAttribs(el, proxy);
         }
-        const script = doc.querySelector('script[nomodule]');
+        const script = docOutsideTemplate.querySelector('script[nomodule]');
         if (script !== null) {
             proxy.insertAdjacentElement('afterend', script);
         }
