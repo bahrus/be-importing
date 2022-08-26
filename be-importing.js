@@ -55,10 +55,12 @@ export class BeImportingController {
         if (el !== null) {
             this.copyAttribs(el, proxy);
         }
-        const iPosOfLastScript = textOutsideTemplate.lastIndexOf('<script');
         const script = docOutsideTemplate.querySelector('script');
         if (script !== null) {
-            proxy.insertAdjacentElement('afterend', script);
+            const newScriptTag = document.createElement('script');
+            newScriptTag.type = 'module';
+            newScriptTag.innerHTML = script.innerHTML;
+            document.head.appendChild(newScriptTag);
         }
     }
     async doTransform({ transform, modelVal, proxy }) {

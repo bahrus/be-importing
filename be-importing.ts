@@ -58,10 +58,12 @@ export class BeImportingController implements BeImportingActions{
         if(el !== null){
             this.copyAttribs(el, proxy);
         }
-        const iPosOfLastScript = textOutsideTemplate.lastIndexOf('<script');
         const script = docOutsideTemplate.querySelector('script') as HTMLScriptElement;
         if(script !== null){
-            proxy.insertAdjacentElement('afterend', script);
+            const newScriptTag = document.createElement('script');
+            newScriptTag.type = 'module';
+            newScriptTag.innerHTML = script.innerHTML;
+            document.head.appendChild(newScriptTag);
         }
     }
 
