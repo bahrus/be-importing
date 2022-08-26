@@ -55,7 +55,8 @@ export class BeImportingController {
         if (el !== null) {
             this.copyAttribs(el, proxy);
         }
-        const script = docOutsideTemplate.querySelector('script[nomodule]');
+        const iPosOfLastScript = textOutsideTemplate.lastIndexOf('<script');
+        const script = docOutsideTemplate.querySelector('script');
         if (script !== null) {
             proxy.insertAdjacentElement('afterend', script);
         }
