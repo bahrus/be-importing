@@ -52,7 +52,7 @@ export class BeImportingController implements BeImportingActions{
         if(shadowRootTempl !== null){
             const mode = shadowRootTempl.getAttribute('shadowroot') as 'open' | 'closed';
             proxy.attachShadow({mode});
-            proxy.shadowRoot!.append(...docInsideTemplate.body.children);
+            proxy.shadowRoot!.append(...docInsideTemplate.head.children, ...docInsideTemplate.body.children);
         }
         const el = docOutsideTemplate.querySelector(proxy.localName);
         if(el !== null){
