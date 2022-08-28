@@ -1,9 +1,9 @@
-import {BeDecoratedProps} from 'be-decorated/types';
+import {BeDecoratedProps, MinimalProxy} from 'be-decorated/types';
 //import {BeBasedVirtualProps} from 'be-based/types';
 import {TransformPluginSettings} from 'trans-render/lib/types';
 import {IObserve} from 'be-observant/types';
 
-export interface BeImportingVirtualProps{
+export interface BeImportingVirtualProps extends MinimalProxy{
     path?: string;
     baseCDN?: string;
     //beBased?: BeBasedVirtualProps;

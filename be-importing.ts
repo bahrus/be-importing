@@ -4,7 +4,7 @@ import {register} from "be-hive/register.js";
 import {RenderContext} from 'trans-render/lib/types';
 
 const inProgress : {[key: string]: boolean} = {};
-export class BeImportingController implements BeImportingActions{
+export class BeImportingController extends EventTarget implements BeImportingActions{
     #ctx: RenderContext | undefined;
     async onPath({path, proxy, baseCDN, transform, transformPlugins, modelVal}: this) {
         if(customElements.get(proxy.localName) !== undefined){
@@ -65,6 +65,7 @@ export class BeImportingController implements BeImportingActions{
             newScriptTag.innerHTML = script.innerHTML;
             document.head.appendChild(newScriptTag);
         }
+        proxy.resolved = true;
     }
 
     async doTransform({transform, modelVal, proxy}: this) {

@@ -1,7 +1,7 @@
 import { define } from 'be-decorated/be-decorated.js';
 import { register } from "be-hive/register.js";
 const inProgress = {};
-export class BeImportingController {
+export class BeImportingController extends EventTarget {
     #ctx;
     async onPath({ path, proxy, baseCDN, transform, transformPlugins, modelVal }) {
         if (customElements.get(proxy.localName) !== undefined) {
@@ -62,6 +62,7 @@ export class BeImportingController {
             newScriptTag.innerHTML = script.innerHTML;
             document.head.appendChild(newScriptTag);
         }
+        proxy.resolved = true;
     }
     async doTransform({ transform, modelVal, proxy }) {
         if (this.#ctx === undefined)
