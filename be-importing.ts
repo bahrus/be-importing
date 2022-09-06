@@ -1,12 +1,12 @@
 import {define, BeDecoratedProps} from 'be-decorated/be-decorated.js';
-import {BeImportingVirtualProps, BeImportingActions, BeImportingProps} from './types';
+import {VirtualProps, Actions, Proxy, PP} from './types';
 import {register} from "be-hive/register.js";
 import {RenderContext} from 'trans-render/lib/types';
 
 const inProgress : {[key: string]: boolean} = {};
-export class BeImportingController extends EventTarget implements BeImportingActions{
+export class BeImportingController extends EventTarget implements Actions{
     #ctx: RenderContext | undefined;
-    async onPath({path, proxy, baseCDN, transform, transformPlugins, modelVal}: this) {
+    async onPath({path, proxy, baseCDN, transform, transformPlugins, modelVal}: PP) {
         if(customElements.get(proxy.localName) !== undefined){
             return;
         }
@@ -68,7 +68,7 @@ export class BeImportingController extends EventTarget implements BeImportingAct
         proxy.resolved = true;
     }
 
-    async doTransform({transform, modelVal, proxy}: this) {
+    async doTransform({transform, modelVal, proxy}: PP) {
         if(this.#ctx === undefined) return;
         const root = proxy.shadowRoot;
         if(root === null) return;
@@ -89,13 +89,11 @@ export class BeImportingController extends EventTarget implements BeImportingAct
         }
     }
 
-    async onModel({model, proxy}: this){
+    async onModel({model, proxy}: PP){
         const {hookUp} = await import('be-observant/hookup.js');
         hookUp(model, proxy, 'modelVal');
     }
 } 
-
-export interface BeImportingController extends BeImportingProps{}
 
 const tagName = 'be-importing';
 
@@ -103,7 +101,7 @@ const ifWantsToBe = 'importing';
 
 const upgrade = '*';
 
-define<BeImportingProps & BeDecoratedProps<BeImportingProps, BeImportingActions>, BeImportingActions>({
+define<VirtualProps & BeDecoratedProps<VirtualProps, Actions>, Actions>({
     config:{
         tagName,
         propDefaults:{

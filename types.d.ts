@@ -3,7 +3,8 @@ import {BeDecoratedProps, MinimalProxy} from 'be-decorated/types';
 import {TransformPluginSettings} from 'trans-render/lib/types';
 import {IObserve} from 'be-observant/types';
 
-export interface BeImportingVirtualProps extends MinimalProxy{
+
+export interface EndUserProps{
     path?: string;
     baseCDN?: string;
     //beBased?: BeBasedVirtualProps;
@@ -11,15 +12,23 @@ export interface BeImportingVirtualProps extends MinimalProxy{
     transform?: any;
     transformPlugins?: {[key: string]: boolean};
     model: IObserve,
+}
+
+export interface VirtualProps extends EndUserProps, MinimalProxy{
+
     modelVal: any,
 }
 
-export interface BeImportingProps extends BeImportingVirtualProps{
-    proxy: Element & BeImportingVirtualProps;
+export type Proxy = Element & VirtualProps;
+
+export interface ProxyProps extends VirtualProps {
+    proxy: Proxy
 }
 
-export interface BeImportingActions{
-    onPath(self: this): void;
-    onModel(self: this): void;
-    doTransform(self: this): void;
+export type PP = ProxyProps;
+
+export interface Actions{
+    onPath(pp: PP): void;
+    onModel(pp: PP): void;
+    doTransform(pp: PP): void;
 }
