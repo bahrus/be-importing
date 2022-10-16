@@ -11,7 +11,7 @@
     "custom-elements"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "playwright test",
     "package-check": "package-check",
     "serve": "node node_modules/may-it-serve/serve.js"
   },
@@ -24,14 +24,15 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-active": "0.0.43",
-    "be-decorated": "0.0.180",
-    "be-observant": "0.0.154",
-    "be-hive": "0.0.74"
+    "be-active": "0.0.44",
+    "be-decorated": "0.0.182",
+    "be-observant": "0.0.155",
+    "be-hive": "0.0.76"
   },
   "devDependencies": {
     "may-it-serve": "0.0.3",
     "@skypack/package-check": "0.2.2",
+    "@playwright/test": "1.27.1",
     "@custom-elements-manifest/analyzer": "0.6.4"
   },
   "repository": {

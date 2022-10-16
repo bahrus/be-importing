@@ -1,5 +1,7 @@
 # be-importing (WIP)
 
+[![Playwright Tests](https://github.com/bahrus/be-importing/actions/workflows/CI.yml/badge.svg?branch=baseline)](https://github.com/bahrus/be-importing/actions/workflows/CI.yml)
+
 <a href="https://nodei.co/npm/be-importing/"><img src="https://nodei.co/npm/be-importing.png"></a>
 
 [![How big is this package in your project?](https://img.shields.io/bundlephobia/minzip/be-importing?style=for-the-badge)](https://bundlephobia.com/result?p=be-importing)
@@ -71,3 +73,28 @@ What this does:
 3.  Once url is determined, fetch it.  Search for a template with attribute shadowroot=open, and if it finds it, sets the shadowRoot by cloning in the template.
 3.  Strips the outer tag if it is my-declarative-component.
       1.  Copies the attributes of the outer tag to the target.
+
+## Viewing Locally
+
+1.  Install git.
+2.  Fork/clone this repo.
+3.  Install node.
+4.  Open command window to folder where you cloned this repo.
+5.  > npm install
+6.  > npm run serve
+7.  Open http://localhost:3030/demo/dev in a modern browser.
+
+## Importing in ES Modules:
+
+```JavaScript
+import 'be-importing/be-importing.js';
+
+```
+
+## Using from CDN:
+
+```html
+<script type=module crossorigin=anonymous>
+    import 'https://esm.run/be-importing';
+</script>
+```

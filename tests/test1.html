@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html></xtal-side-nav>
+    <div id=target></div>
+    <script type=importmap>{
+        "imports":{
+            "trans-render/": "../node_modules/trans-render/",
+            "xtal-element/": "../node_modules/xtal-element/",
+            "be-active/": "../node_modules/be-active/",
+            "be-decorated/": "../node_modules/be-decorated/",
+            "be-hive/": "../node_modules/be-hive/"
+        }
+    }</script>
+    <script type=module>
+        import '../be-importing.js';
+    </script>
+    <script>
+        function runScript(){
+            if(document.querySelector('xtal-side-nav').shadowRoot.querySelector('main') !== null){
+                target.setAttribute('mark', 'good');
+            }
+        }
+        setTimeout(() =>{
+            runScript();
+        }, 10000)
+    </script>
+</body>
+</html>
