@@ -24,13 +24,13 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-active": "0.0.41",
-    "be-decorated": "0.0.153",
-    "be-observant": "0.0.136",
-    "be-hive": "0.0.63"
+    "be-active": "0.0.43",
+    "be-decorated": "0.0.180",
+    "be-observant": "0.0.154",
+    "be-hive": "0.0.74"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.2",
+    "may-it-serve": "0.0.3",
     "@skypack/package-check": "0.2.2",
     "@custom-elements-manifest/analyzer": "0.6.4"
   },
