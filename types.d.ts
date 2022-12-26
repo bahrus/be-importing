@@ -1,23 +1,14 @@
-import {BeDecoratedProps, MinimalProxy} from 'be-decorated/types';
-//import {BeBasedVirtualProps} from 'be-based/types';
-import {TransformPluginSettings} from 'trans-render/lib/types';
-import {IObserve} from 'be-observant/types';
+import {
+    EndUserProps as BeWrittenEndUserProps,
+    VirtualProps as BeWrittenVirtualProps,
+    Actions as BeWrittenActions,
+} from 'be-written/types';
 
-
-export interface EndUserProps{
-    path?: string;
+export interface EndUserProps extends BeWrittenEndUserProps{
     baseCDN?: string;
-    //beBased?: BeBasedVirtualProps;
-    //TODO:  Does it make sense to do a transform?  what is the "host"?
-    transform?: any;
-    transformPlugins?: {[key: string]: boolean};
-    model: IObserve,
 }
 
-export interface VirtualProps extends EndUserProps, MinimalProxy{
-
-    modelVal: any,
-}
+export interface VirtualProps extends EndUserProps, BeWrittenVirtualProps{}
 
 export type Proxy = Element & VirtualProps;
 
@@ -29,6 +20,5 @@ export type PP = ProxyProps;
 
 export interface Actions{
     onPath(pp: PP): void;
-    onModel(pp: PP): void;
-    doTransform(pp: PP): void;
+    
 }

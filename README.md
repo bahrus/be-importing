@@ -37,12 +37,6 @@ So yes, this is yet another client-side include implementation, but one specific
 ```
 
 
-### Perform preimport transform(s) with DTR 
-
-[TODO]  Document
-
-### Perform preimport transform with XSLT [TODO]
-
 ### Specifying an alternative web component name. [TODO]
 
 The syntax above only works if the declarative component defined in the server specifies the same tag name as the tag adorned by the be-importing attribute.
