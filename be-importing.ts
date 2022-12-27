@@ -10,11 +10,7 @@ import {ActionExt} from 'be-decorated/types';
 import {register} from 'be-hive/register.js';
 import { PPP, PP, VirtualProps } from '../be-written/types';
 import {define, BeDecoratedProps} from 'be-decorated/DE.js';
-export class BeImporting extends BeWritten{
-
-
-
-}
+export class BeImporting extends BeWritten{}
 
 const tagName = 'be-importing';
 
