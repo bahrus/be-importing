@@ -44,3 +44,5 @@ define<PP & BeDecoratedProps<PP, Actions>, Actions>({
 });
 
 register(ifWantsToBe, upgrade, tagName);
+
+import('be-having/be-having.js');

@@ -29,3 +29,4 @@ define({
     }
 });
 register(ifWantsToBe, upgrade, tagName);
+import('be-having/be-having.js');
