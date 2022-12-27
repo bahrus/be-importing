@@ -37,36 +37,6 @@ So yes, this is yet another client-side include implementation, but one specific
 ```
 
 
-### Specifying an alternative web component name. [TODO]
-
-The syntax above only works if the declarative component defined in the server specifies the same tag name as the tag adorned by the be-importing attribute.
-
-If the remote web component uses a different tag name, then this needs to be spelled out:
-
-```html
-<head>
-      <link rel="preload" as="fetch" id="my-declarative-component/my-declarative-component.html" href="https://cdn.jsdelivr.net/my-declarative-component/my-declarative-component.html">
-</head>
-<body>
-...
-<my-alternative-component-name be-importing='{
-      "path": "my-declarative-component/my-declarative-component.html",
-      "tagName": "my-declarative-component"
-}'>
-<!-- light children -->
-</my-alternative-component-name>
-...
-</body>
-
-```
-
-What this does:
-
-1.  If customElements.get('my-declarative-component') is undefined, it will fetch the HTML.  Otherwise, full stop.
-2.  If value matches link id, get the href from the link tag.  Otherwise, prepend with https://cdn.jsDelivr.net (or whatever is fastest), unless starts with a .
-3.  Once url is determined, fetch it.  Search for a template with attribute shadowroot=open, and if it finds it, sets the shadowRoot by cloning in the template.
-3.  Strips the outer tag if it is my-declarative-component.
-      1.  Copies the attributes of the outer tag to the target.
 
 ## Viewing Locally
 
