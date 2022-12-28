@@ -34,7 +34,6 @@ So yes, this is yet another client-side include implementation, but one specific
         "stream-orator/": "../node_modules/stream-orator/",
         "trans-render/": "../node_modules/trans-render/",
         "xtal-element/": "../node_modules/xtal-element/",
-        "be-active/": "../node_modules/be-active/",
         "be-based/": "../node_modules/be-based/",
         "be-decorated/": "../node_modules/be-decorated/",
         "be-exportable/": "../node_modules/be-exportable/",
