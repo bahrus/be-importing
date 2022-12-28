@@ -1,7 +1,7 @@
 {
   "name": "be-importing",
   "version": "0.0.44",
-  "description": "With the advent of declarative shadow DOM, many useful web components that require little to no js could be less taxing on the browser if they were imported as pre-rendered HTML rather than JavaScript.",
+  "description": "Import Static, Declarative HTML Web Components with Streaming HTML.",
   "main": "be-importing.js",
   "module": "be-importing.js",
   "keywords": [
