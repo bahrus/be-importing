@@ -22,7 +22,12 @@ So yes, this is yet another client-side include implementation, but one specific
 ### Using node modules
 
 ```html
-<xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html></xtal-side-nav>
+<xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html>
+    <section style='color:white'>
+        <div>Menu Item 1</div>
+        <div>Menu Item 2</div>
+    </section>
+</xtal-side-nav>
 <div id=target></div>
 <script type=importmap>{
     "imports":{
@@ -67,8 +72,7 @@ Note that we can give any name we want to the custom element, it doesn't have to
 </script>
 ```
 
-
-
+[Demo](https://codepen.io/bahrus/pen/abjdQWW)
 
 
 ## Viewing Locally
