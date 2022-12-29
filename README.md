@@ -67,7 +67,7 @@ Note that we can give any name we want to the custom element, it doesn't have to
     }
 }</script>
 <script type=module>
-    import 'https://esm.run/be-importing@0.0.45';
+    import 'https://esm.run/be-importing@0.0.47';
 </script>
 ```
 
