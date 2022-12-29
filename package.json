@@ -24,10 +24,10 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-decorated": "0.0.212",
-    "be-having": "0.0.5",
+    "be-decorated": "0.0.213",
+    "be-having": "0.0.6",
     "be-hive": "0.0.79",
-    "be-written": "0.0.15"
+    "be-written": "0.0.16"
   },
   "devDependencies": {
     "may-it-serve": "0.0.4",
