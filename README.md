@@ -63,7 +63,7 @@ Note that we can give any name we want to the custom element, it doesn't have to
 <div id=target></div>
 <script type=importmap>{
     "imports":{
-        "xtal-side-nav/": "https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.104/"
+        "xtal-side-nav/": "https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.106/"
     }
 }</script>
 <script type=module>
