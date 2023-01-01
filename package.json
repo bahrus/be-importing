@@ -8,7 +8,8 @@
     "web-components",
     "web-component",
     "custom-element",
-    "custom-elements"
+    "custom-elements",
+    "streaming"
   ],
   "scripts": {
     "test": "playwright test",
