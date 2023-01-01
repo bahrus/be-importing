@@ -131,13 +131,14 @@ So yes, this is yet another client-side include implementation, but one specific
         <div>Menu Item 2</div>
     </section>
 </xtal-side-nav>
+
 <script type=importmap>{
     "imports":{
-        "xtal-side-nav/": "https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.106/"
+        "xtal-side-nav/": "https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/"
     }
 }</script>
 <script type=module>
-    import 'https://esm.run/be-importing@0.0.47';
+    import 'https://esm.run/be-importing@0.0.50';
 </script>
 ```
 
