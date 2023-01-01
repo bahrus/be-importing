@@ -38,7 +38,7 @@ When the user loads an HTML page in their browser, served by an ancient web serv
 
 Three decades later, as we speak, there is some fantastic, cutting edge work going on that will  enable this streaming optimization, even for content that has style isolation (Shadow DOM), so that's great news!
 
-However, the theoretical possibility to be able to stream *partial page reloads* arrived at the same time as Road Runner and V8, so the whole streaming concept become passé.  Instead, we went all API-happy, with [unfortunate future consequences](https://infrequently.org/2022/12/performance-baseline-2023/). 
+However, the theoretical possibility to be able to stream *partial page reloads* arrived at the same time as Road Runner and V8, so the whole streaming concept became passé.  Instead, we went all API-happy, with [unfortunate future consequences](https://infrequently.org/2022/12/performance-baseline-2023/). 
 
 One would have thought that with the introduction of smart phones, the browser vendors would be rushing to fulfill this poverty-and-global-warming-reducing functionality (stream partial page reloads), but they have higher priorities, like preventing anyone from knowing the user visited another site that also uses JQuery (how embarrassing that would be!).  Downloading a fresh copy of JQuery every 10 minutes is precisely what mobile phone users on a pay-as-you-go plan have been clamoring for.
 
