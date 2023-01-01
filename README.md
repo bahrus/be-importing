@@ -121,7 +121,7 @@ So yes, this is yet another client-side include implementation, but one specific
 </script>
 ```
 
-> **Note:**: We can give any name we want to the custom element, it doesn't have to match the default name specified by the html file!
+> **Note**: We can give any name we want to the custom element, it doesn't have to match the default name specified by the html file!
 
 ### Using CDN:
 
