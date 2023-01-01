@@ -151,7 +151,7 @@ An alternative way of mapping the bare import specifier of the html file to a pr
 <!-- This should probably go in index.html / head tag: -->
 <head>
     ...
-<link id=xtal-side-nav/xtal-side-nav.html rel=preload as=fetch href>
+<link id=xtal-side-nav/xtal-side-nav.html rel=preload as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
 ...
 </head>
 
