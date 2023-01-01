@@ -45,6 +45,8 @@ Now that every household in Silicon Valley has intravenous 5g connectivity, it i
 
 Still, progress has been made, and today, all the browsers do have good api support for streaming partial page reloads (with some temporary, hopefully, caveats).  [be-written](https://github.com/bahrus/be-written) exists to provide declarative support on top of these API's, a kind of inline iframe without the negative performance / constrained to a rectangle limitions of an iframe.  Here's to hoping the browser vendors choose to show some HTML love (like they've been doing for years with JavaScript) and provide first class support for declarative inclusiveness.  be-written also has rudimentary support for import maps.
 
+## Functionality
+
 *be-importing* extends be-written, by simply defaulting some of be-written's options to settings most applicable for (declarative) web components:
 
 ```TypeScript
