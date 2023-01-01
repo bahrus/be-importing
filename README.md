@@ -59,7 +59,7 @@ Still, progress has been made, and today, all the browsers do have good api supp
 
 The "between" setting allows us to create web components as html files that can also be opened directly in a web browser, making rudimentary demo's possible.  
 
-But more importantly, tt also solves some difficult to overcome obstacles as far as managing where the light children should go, and the ability to pass properties down to the custom element ahead of the downloading.
+But more importantly, t=it also solves some difficult to overcome obstacles as far as managing where the light children should go, and the ability to pass properties down to the custom element ahead of the downloading.
 
 The "shadowRoot" setting allows us to specify whether to wrap the imported content inside a shadowRoot.  This is "off" by default for be-written, but defaults to "open" for be-importing, as that is more typically desired for web components.
 
