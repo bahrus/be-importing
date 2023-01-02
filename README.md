@@ -48,11 +48,11 @@ Now that every household in Silicon Valley has intravenous 5g connectivity, it i
 
 Still, progress has been made, and today, all the browsers do have good api support for streaming partial page reloads.   There are some rough edges, I'm finding, which will hopefully be ironed out soon.  [be-written](https://github.com/bahrus/be-written) exists to provide declarative support on top of these API's.  It provides a kind of inline iframe, but without the baggage of iframes -- the [slow performance](https://learn.microsoft.com/en-us/microsoft-365/enterprise/modern-iframe-optimization?view=o365-worldwide) / being limited to a rectangle, to name the top two issues iframes have.  Here's to hoping the browser vendors choose to show some much needed HTML love (like they've been doing for years with JavaScript) and provide first class support for declarative inclusiveness, making *be-written* a welcomed casualty.  
 
-It should be noted that be-written also has rudimentary support for import maps.
+It should be noted that *be-written* also has rudimentary support for import maps.
 
 ## Functionality
 
-*be-importing* extends *be-written*, by simply defaulting some of be-written's options to settings most applicable for (declarative) web components:
+*be-importing* extends *be-written*, by simply defaulting some of *be-written*'s options to settings most applicable for (declarative) web components:
 
 ```TypeScript
 {
@@ -64,7 +64,7 @@ It should be noted that be-written also has rudimentary support for import maps.
 
 The "between" setting allows us to create web components as html files that can also be opened directly in a web browser, making rudimentary demo's possible.  
 
-But more importantly, it also solves some difficult to overcome obstacles as far as managing where the light children should go, and the ability to pass properties down to the custom element ahead of the downloading.  And also allowing the same file to be used as an embedded server-side include in scenarios where the benefits outweigh the costs of that approach.
+But more importantly, it also solves some difficult to overcome obstacles as far as managing where the light children should go, and the ability to pass properties down to the custom element ahead of the downloading completing.  And also allowing the same file to be used as an embedded server-side include in scenarios where the benefits outweigh the costs of that approach.
 
 The "shadowRoot" setting allows us to specify whether to wrap the imported content inside a shadowRoot.  This is "off" by default for be-written, but defaults to "open" for be-importing, as that is more typically desired for web components.
 
