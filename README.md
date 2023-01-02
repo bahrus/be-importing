@@ -34,21 +34,25 @@
 
 With the advent of declarative shadow DOM, many useful web components that require little to no js could be less taxing on the browser if they were imported as pre-rendered HTML rather than JavaScript.
 
-When the user loads an HTML page in their browser, served by an ancient web server, it streams.  This was engineered by Netscape/Apache in a fortnight, when even elite users had to suffer with 19,200 bit/s.  
+When the user loads an HTML page in their browser, served by an ancient web server, it streams.  This was engineered by Netscape/Apache in a fortnight(?), when even elite users had to suffer with 19,200 bit/s.  
 
 Three decades later, as we speak, there is some fantastic, cutting edge work going on that will  enable this streaming optimization, even for content that has style isolation (Shadow DOM), so that's great news!
 
-However, the theoretical possibility to be able to stream *partial page reloads* arrived at the same time as Road Runner and V8, so the whole streaming concept became passé.  Instead, we went all API-happy, with [unfortunate future consequences](https://infrequently.org/2022/12/performance-baseline-2023/). 
+But if we need a portion of the page to stream, for example as the content of that part of the page becomes out of date?
 
-One would have thought that with the introduction of smart phones, the browser vendors would be rushing to fulfill this poverty-and-global-warming-reducing functionality (stream partial page reloads), but they have higher priorities, like preventing anyone from knowing the user visited another site that also uses JQuery (how embarrassing that would be!).  Downloading a fresh copy of JQuery every 10 minutes is precisely what mobile phone users on a pay-as-you-go plan have been clamoring for.
+That would have been the natural evolution of things, once asynchronous http requests could be made within a page sage, circa 1999.  Browsers would have needed to make certain adjustments to make it so.   But asynchronous HTTP landed at about the same time as Road Runner and V8, so the whole streaming concept became passé at that point.  Instead, we went all API-happy, with [unfortunate future consequences](https://infrequently.org/2022/12/performance-baseline-2023/). 
+
+One would have thought that with the introduction of smart phones, the browser vendors would have gone back to the drawing board, and rushed to fulfill this poverty-and-global-warming-reducing functionality (streaming partial page reloads), but alas, they had higher priorities, like preventing one website from gleaning whether the user visited another site that also uses JQuery (how embarrassing that would be if it were known!).  So browsers made sure to prevent that from happening.  Downloading a fresh copy of JQuery every 10 minutes is precisely what mobile phone users on a pay-as-you-go plan have been clamoring for.
 
 Now that every household in Silicon Valley has intravenous 5g connectivity, it is not surprising that implementing streaming for partial page reloads has been a dystopian, [Kafkaesque](https://astrofella.wordpress.com/2021/05/14/jorge-luis-borges-franz-kafka/), waiting-for-Godot's-second-coming kind of a rollout.
 
-Still, progress has been made, and today, all the browsers do have good api support for streaming partial page reloads (with some temporary, hopefully, caveats).  [be-written](https://github.com/bahrus/be-written) exists to provide declarative support on top of these API's, a kind of inline iframe without the negative performance / constrained to a rectangle limitions of an iframe.  Here's to hoping the browser vendors choose to show some HTML love (like they've been doing for years with JavaScript) and provide first class support for declarative inclusiveness.  be-written also has rudimentary support for import maps.
+Still, progress has been made, and today, all the browsers do have good api support for streaming partial page reloads.   There are some rough edges, I'm finding, which will hopefully be ironed out soon.  [be-written](https://github.com/bahrus/be-written) exists to provide declarative support on top of these API's.  It provides a kind of inline iframe, but without the baggage of iframes -- the [slow performance](https://learn.microsoft.com/en-us/microsoft-365/enterprise/modern-iframe-optimization?view=o365-worldwide) / being limited to a rectangle, to name the top two issues iframes have.  Here's to hoping the browser vendors choose to show some much needed HTML love (like they've been doing for years with JavaScript) and provide first class support for declarative inclusiveness, making *be-written* a welcomed casualty.  
+
+It should be noted that be-written also has rudimentary support for import maps.
 
 ## Functionality
 
-*be-importing* extends be-written, by simply defaulting some of be-written's options to settings most applicable for (declarative) web components:
+*be-importing* extends *be-written*, by simply defaulting some of be-written's options to settings most applicable for (declarative) web components:
 
 ```TypeScript
 {
