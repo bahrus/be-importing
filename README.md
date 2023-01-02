@@ -64,7 +64,7 @@ It should be noted that be-written also has rudimentary support for import maps.
 
 The "between" setting allows us to create web components as html files that can also be opened directly in a web browser, making rudimentary demo's possible.  
 
-But more importantly, it also solves some difficult to overcome obstacles as far as managing where the light children should go, and the ability to pass properties down to the custom element ahead of the downloading.
+But more importantly, it also solves some difficult to overcome obstacles as far as managing where the light children should go, and the ability to pass properties down to the custom element ahead of the downloading.  And also allowing the same file to be used as an embedded server-side include in scenarios where the benefits outweigh the costs of that approach.
 
 The "shadowRoot" setting allows us to specify whether to wrap the imported content inside a shadowRoot.  This is "off" by default for be-written, but defaults to "open" for be-importing, as that is more typically desired for web components.
 
@@ -90,9 +90,7 @@ The "once" setting allows us have repeated instances of the web component, inclu
 
 A strong case can be made that to benefit from caching, lazy loading, etc, in some cases it is better to reference the HTML via client-side fetch.
 
-Another benefit of defining something like this on the client side, is the same syntax could be used on the server in order to know from where to get (and cache?) the HTML when doing "true" (I guess) SSR, embedding the declarative HTML into the live stream (with a first content paint performance gain, at the expense of fine grained caching).
-
-So yes, this is yet another client-side include implementation, but one specifically for declarative shadow DOM / declarative web components.
+So yes, this is yet another client-side include implementation, but one specifically for streaming declarative shadow DOM / declarative web components to the browser.
 
 ## Working example:
 
