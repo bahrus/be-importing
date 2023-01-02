@@ -38,9 +38,9 @@ When the user loads an HTML page in their browser, served by an ancient web serv
 
 Three decades later, as we speak, there is some fantastic, cutting edge work going on that will  enable this streaming optimization, even for content that has style isolation (Shadow DOM), so that's great news!
 
-But if we need a portion of the page to stream, for example as the content of that part of the page becomes out of date?
+But what if we need a portion of the page to stream, for example as the content of that part of the page becomes out of date?  Or maybe the data for that portion of the page wasn't available at the time the page loaded.  
 
-That would have been the natural evolution of things, once asynchronous http requests could be made within a page sage, circa 1999.  Browsers would have needed to make certain adjustments to make it so.   But asynchronous HTTP landed at about the same time as Road Runner and V8, so the whole streaming concept became passé at that point.  Instead, we went all API-happy, with [unfortunate future consequences](https://infrequently.org/2022/12/performance-baseline-2023/). 
+That would have been the natural evolution of things, to support this scenario, once asynchronous http requests could be made within a page session, circa 1999.  Browsers would have needed to make certain adjustments to make it so.   But asynchronous HTTP landed at about the same time as Road Runner and V8, so the whole streaming concept became passé at that point.  Instead, we went all API-happy, with [unfortunate future consequences](https://infrequently.org/2022/12/performance-baseline-2023/). 
 
 One would have thought that with the introduction of smart phones, the browser vendors would have gone back to the drawing board, and rushed to fulfill this poverty-and-global-warming-reducing functionality (streaming partial page reloads), but alas, they had higher priorities, like preventing one website from gleaning whether the user visited another site that also uses JQuery (how embarrassing that would be if it were known!).  So browsers made sure to prevent that from happening.  Downloading a fresh copy of JQuery every 10 minutes is precisely what mobile phone users on a pay-as-you-go plan have been clamoring for.
 
