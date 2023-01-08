@@ -14,7 +14,8 @@
   "scripts": {
     "test": "playwright test",
     "package-check": "package-check",
-    "serve": "node node_modules/may-it-serve/serve.js"
+    "serve": "node node_modules/may-it-serve/serve.js",
+    "safari": "npx playwright wk http://localhost:3030"
   },
   "exports": {
     ".": "./be-importing.js",
@@ -25,15 +26,15 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-decorated": "0.0.217",
-    "be-having": "0.0.10",
+    "be-decorated": "0.0.218",
+    "be-having": "0.0.11",
     "be-hive": "0.0.79",
-    "be-written": "0.0.19"
+    "be-written": "0.0.20"
   },
   "devDependencies": {
     "may-it-serve": "0.0.4",
     "@skypack/package-check": "0.2.2",
-    "@playwright/test": "1.29.1",
+    "@playwright/test": "1.29.2",
     "@custom-elements-manifest/analyzer": "0.6.4"
   },
   "repository": {
