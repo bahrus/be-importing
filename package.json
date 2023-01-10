@@ -29,7 +29,7 @@
     "be-decorated": "0.0.218",
     "be-having": "0.0.11",
     "be-hive": "0.0.79",
-    "be-written": "0.0.20"
+    "be-written": "0.0.21"
   },
   "devDependencies": {
     "may-it-serve": "0.0.4",
