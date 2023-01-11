@@ -29,7 +29,6 @@
 ```
 
 
-
 ## Backdrop
 
 With the advent of declarative shadow DOM, many useful web components that require little to no js could be less taxing on the browser if they were imported as pre-rendered HTML rather than JavaScript.
@@ -46,9 +45,11 @@ One would have thought that with the introduction of smart phones, the browser v
 
 Now that every household in Silicon Valley has intravenous 5g connectivity, it is not surprising that implementing streaming for partial page reloads has been a dystopian, [Kafkaesque](https://astrofella.wordpress.com/2021/05/14/jorge-luis-borges-franz-kafka/), waiting-for-Godot's-second-coming kind of a rollout.
 
-Still, progress has been made, and today, all the browsers do have good api support for streaming partial page reloads.   There are some rough edges, I'm finding, which will hopefully be ironed out soon.  [be-written](https://github.com/bahrus/be-written) exists to provide declarative support on top of these API's.  It provides a kind of inline iframe, but without the baggage of iframes -- the [slow performance](https://learn.microsoft.com/en-us/microsoft-365/enterprise/modern-iframe-optimization?view=o365-worldwide) / being limited to a rectangle, to name the top two issues iframes have.  Here's to hoping the browser vendors choose to show some much needed HTML love (like they've been doing for years with JavaScript) and provide first class support for declarative inclusiveness, making *be-written* a welcomed casualty.  
+Still, progress has been made, and today, all the browsers do have good api support for streaming partial page reloads.   There are some rough edges, I'm finding, which will hopefully be ironed out soon.  [be-written](https://github.com/bahrus/be-written) exists to provide declarative support on top of these API's.  It provides a kind of inline iframe, but without the baggage of iframes -- the [slow performance](https://learn.microsoft.com/en-us/microsoft-365/enterprise/modern-iframe-optimization?view=o365-worldwide) / being limited to a rectangle, to name the top two issues iframes have.  Here's to hoping the browser vendors choose to show some much needed HTML love (like they've been doing for years with JavaScript) and provide first class support for declarative inclusiveness, making *be-written* a welcomed casualty. 
 
-It should be noted that *be-written* also has rudimentary support for import maps.
+## Security
+
+It should be noted that *be-written* also has rudimentary support for import maps, as well as a custom link preload solution.  This in fact forms the cornerstone of the [security checks](https://github.com/bahrus/be-written#what-about-security), to prevent an attribute that might be corrupted via an XSS attack to reference any url arbitrarily.  Only url's that are resolved by import maps and/or link preload (or any other value of rel) can be imported via be-importing (and CSP can also help here).
 
 ## Functionality
 
