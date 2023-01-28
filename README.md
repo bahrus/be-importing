@@ -49,7 +49,7 @@ Still, progress has been made, and today, all the browsers do have good api supp
 
 ## Security
 
-It should be noted that *be-written* also has rudimentary support for import maps, as well as a custom link preload solution containing an onblur attribute.  This in fact forms the cornerstone of the [security checks](https://github.com/bahrus/be-written#what-about-security), to prevent an attribute that might be corrupted via an XSS attack to reference any url arbitrarily.  Only url's that are resolved by import maps and/or link preload (or any other value of rel, as long as the link tag was able to establish an onblur attribute) can be imported via be-importing (and CSP can also help here).
+It should be noted that *be-written* also has rudimentary support for import maps, as well as a custom link preload solution containing an onerror attribute.  This in fact forms the cornerstone of the [security checks](https://github.com/bahrus/be-written#what-about-security), to prevent an attribute that might be corrupted via an XSS attack to reference any url arbitrarily.  Only url's that are resolved by import maps and/or link preload (or any other value of rel, as long as the link tag was able to obtain an onerror attribute) can be imported via be-importing (and CSP can also help here).
 
 ## Functionality
 
