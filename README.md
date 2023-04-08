@@ -89,6 +89,8 @@ The "once" setting allows us have repeated instances of the web component, inclu
 
 ... only downloads the resource once, and (using loosely coupled functionality not discussed here) only defines one custom element.
 
+be-importing also adds some additional support to make switching back and forth between bundling / no bundling (either statically or dynamically) easy to manage [TODO].
+
 A strong case can be made that to benefit from caching, lazy loading, etc, in some cases it is better to reference the HTML via client-side fetch.
 
 So yes, this is yet another client-side include implementation, but one specifically for streaming declarative shadow DOM / declarative web components to the browser.
@@ -180,6 +182,19 @@ An alternative way of mapping the bare import specifier of the html file to a pr
 
 [Demo](https://codepen.io/bahrus/pen/abjdQWW)
 
+## Support for bundling [TODO]
+
+It seems likely, even with all the advances that HTTP/3 provides, that in cases where most of the users are hit-and-run type visitors, some amount of bundling would be beneficial.
+
+It may be that in some cases, it is a bit difficult to say which is better - bundling or no bundling, so switching back and forth seamlessly is of upmost importance.
+
+The fact that the value of be-importing isn't pointing right at the resource, that we need to pass through some extra hoops to be secure and safe in our imports, actually comes in to help here.
+
+Recommended approach (tentative)
+
+1.  Use link preload tags (import maps also fine, but will be ignored if everything matches up with a link preload tag).  Required if bundling support is needed.
+2.  If bundling was accomplished, either during a build process, or dynamically by the server, the process can add attribute data-imported.  The process should also remove "rel=preload".
+3.  If no value for the attribute is specified, *be-importing* assumes the next sibling of the link element will be a template element, and import the contents from there.
 
 ## Viewing Locally
 

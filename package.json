@@ -26,15 +26,15 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-decorated": "0.0.222",
-    "be-having": "0.0.13",
-    "be-hive": "0.0.79",
+    "be-decorated": "0.0.238",
+    "be-having": "0.0.15",
+    "be-hive": "0.0.82",
     "be-written": "0.0.25"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.4",
+    "may-it-serve": "0.0.5",
     "@skypack/package-check": "0.2.2",
-    "@playwright/test": "1.29.2",
+    "@playwright/test": "1.32.1",
     "@custom-elements-manifest/analyzer": "0.6.4"
   },
   "repository": {
