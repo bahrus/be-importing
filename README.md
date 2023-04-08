@@ -156,7 +156,10 @@ An alternative way of mapping the bare import specifier of the html file to a pr
 <!-- This should probably go in index.html / head tag: -->
 <head>
     ...
-<link id=xtal-side-nav/xtal-side-nav.html rel=preload as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
+<link id=xtal-side-nav/xtal-side-nav.html 
+    rel=preload as=fetch 
+    href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html 
+    onblur=console.error(href)>
 ...
 </head>
 
@@ -200,7 +203,9 @@ Recommended approach (tentative)
 So basically:
 
 ```html
-<link id=xtal-side-nav/xtal-side-nav.html rel=preload as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
+<link id=xtal-side-nav/xtal-side-nav.html 
+    rel=preload as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html 
+    onblur=console.error(href)>
 ```
 
 ...becomes, during the build / server rendering process :
@@ -208,7 +213,7 @@ So basically:
 ```html
 <head>
     ...
-    <link id=xtal-side-nav/xtal-side-nav.html data-imported as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
+    <link id=xtal-side-nav/xtal-side-nav.html data-imported as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html onblur=console.error(href)>
     <template>
         <main part=main>
             <button disabled aria-label="Open Menu" part=opener class=opener>&#9776; <slot name=title></slot></button>
@@ -220,6 +225,25 @@ So basically:
     ...
 </head>
 ```
+
+...Or, if it is more convenient to append the template at the end of the head tag:
+
+```html
+<head>
+    ...
+    <link id=xtal-side-nav/xtal-side-nav.html data-imported=032c2e8a-36a7-4f9c-96a0-673cba30c142 as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
+    ...
+    <template id=032c2e8a-36a7-4f9c-96a0-673cba30c142>
+        <main part=main>
+            <button disabled aria-label="Open Menu" part=opener class=opener>&#9776; <slot name=title></slot></button>
+            <aside part=side-nav class=side-nav>
+                ...
+            </aside>
+        </main>
+    </template>
+</head>
+```
+
 
 ## Viewing Locally
 
