@@ -186,7 +186,7 @@ An alternative way of mapping the bare import specifier of the html file to a pr
 
 It seems likely, even with all the advances that HTTP/3 provides, that in cases where most of the users are hit-and-run type visitors, some amount of bundling would be beneficial.
 
-It may be that in some cases, it is a bit difficult to say which is better - bundling or no bundling, so switching back and forth seamlessly is of upmost importance.
+It may be that in some cases, it is a bit difficult to say which is better - bundling or no bundling, so switching back and forth seamlessly is of upmost importance.  
 
 The fact that the value of be-importing isn't pointing right at the resource, that we need to pass through some extra hoops to be secure and safe in our imports, actually comes in to help here.
 
@@ -196,6 +196,30 @@ Recommended approach (tentative)
 2.  If bundling was accomplished, either during a build process, or dynamically by the server, the process can add attribute data-imported.  The process should also remove "rel=preload".
 3.  If no value for the attribute is specified, *be-importing* assumes the next sibling of the link element will be a template element, and import the contents from there.
 4.  The data-imported attribute can specify an id for the template element.
+
+So basically:
+
+```html
+<link id=xtal-side-nav/xtal-side-nav.html rel=preload as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
+```
+
+...becomes, during the build / server rendering process :
+
+```html
+<head>
+    ...
+    <link id=xtal-side-nav/xtal-side-nav.html data-imported as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
+    <template>
+        <main part=main>
+            <button disabled aria-label="Open Menu" part=opener class=opener>&#9776; <slot name=title></slot></button>
+            <aside part=side-nav class=side-nav>
+                ...
+            </aside>
+        </main>
+    </template>
+    ...
+</head>
+```
 
 ## Viewing Locally
 
