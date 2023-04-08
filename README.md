@@ -213,7 +213,11 @@ So basically:
 ```html
 <head>
     ...
-    <link id=xtal-side-nav/xtal-side-nav.html data-imported as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html onblur=console.error(href)>
+    <link id=xtal-side-nav/xtal-side-nav.html 
+            data-imported as=fetch 
+            href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html 
+            onblur=console.error(href)
+    >
     <template>
         <main part=main>
             <button disabled aria-label="Open Menu" part=opener class=opener>&#9776; <slot name=title></slot></button>
@@ -231,7 +235,11 @@ So basically:
 ```html
 <head>
     ...
-    <link id=xtal-side-nav/xtal-side-nav.html data-imported=032c2e8a-36a7-4f9c-96a0-673cba30c142 as=fetch href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
+    <link id=xtal-side-nav/xtal-side-nav.html 
+        data-imported=032c2e8a-36a7-4f9c-96a0-673cba30c142 
+        onblur=console.error(href)
+        as=fetch 
+        href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.110/xtal-side-nav.html>
     ...
     <template id=032c2e8a-36a7-4f9c-96a0-673cba30c142>
         <main part=main>
