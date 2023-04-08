@@ -195,6 +195,7 @@ Recommended approach (tentative)
 1.  Use link preload tags (import maps also fine, but will be ignored if everything matches up with a link preload tag).  Required if bundling support is needed.
 2.  If bundling was accomplished, either during a build process, or dynamically by the server, the process can add attribute data-imported.  The process should also remove "rel=preload".
 3.  If no value for the attribute is specified, *be-importing* assumes the next sibling of the link element will be a template element, and import the contents from there.
+4.  The data-imported attribute can specify an id for the template element.
 
 ## Viewing Locally
 
