@@ -26,16 +26,16 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-enhanced": "0.0.28",
-    "be-having": "0.0.15",
-    "be-hive": "0.0.103",
-    "be-written": "0.0.29"
+    "be-enhanced": "0.0.29",
+    "be-hive": "0.0.104",
+    "be-written": "0.0.29",
+    "trans-render": "0.0.689",
+    "xtal-element": "0.0.567"
   },
   "devDependencies": {
     "may-it-serve": "0.0.5",
     "@skypack/package-check": "0.2.2",
-    "@playwright/test": "1.32.1",
-    "@custom-elements-manifest/analyzer": "0.6.4"
+    "@playwright/test": "1.35.0"
   },
   "repository": {
     "type": "git",
