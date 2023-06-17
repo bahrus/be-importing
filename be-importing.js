@@ -36,3 +36,4 @@ const xe = new XE({
     superclass: BeImporting
 });
 register(ifWantsToBe, upgrade, tagName);
+import('be-active/be-active.js');

@@ -45,3 +45,4 @@ const xe = new XE<AP, Actions>({
 });
 
 register(ifWantsToBe, upgrade, tagName);
+import('be-active/be-active.js');

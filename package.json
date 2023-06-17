@@ -27,6 +27,7 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
+    "be-active": "0.0.49",
     "be-enhanced": "0.0.29",
     "be-hive": "0.0.104",
     "be-written": "0.0.30",
