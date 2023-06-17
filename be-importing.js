@@ -1,8 +1,14 @@
 import { BeWritten, beWrittenPropDefaults, BeWrittenActions } from 'be-written/be-written.js';
 import { XE } from 'xtal-element/XE.js';
-import { propDefaults } from 'be-enhanced/BE.js';
+import { propDefaults, propInfo } from 'be-enhanced/BE.js';
 import { register } from 'be-hive/register.js';
 export class BeImporting extends BeWritten {
+    static get beConfig() {
+        return {
+            parse: true,
+            primaryProp: 'from'
+        };
+    }
 }
 export const beImportingPropDefaults = {
     ...beWrittenPropDefaults,
@@ -19,6 +25,9 @@ const xe = new XE({
         propDefaults: {
             ...propDefaults,
             ...beImportingPropDefaults
+        },
+        propInfo: {
+            ...propInfo,
         },
         actions: {
             ...BeWrittenActions
