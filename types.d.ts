@@ -3,22 +3,23 @@ import {
     AllProps as BeWrittenAllProps,
     Actions as BeWrittenActions,
 } from 'be-written/types';
+import { ActionOnEventConfigs } from "trans-render/froop/types";
 
 export interface EndUserProps extends BeWrittenEndUserProps{
     baseCDN?: string;
 }
 
-export interface AllProps extends EndUserProps{}
+export interface AllProps extends EndUserProps {}
 
-export type Proxy = Element & VirtualProps;
+export type AP = AllProps;
 
-export interface ProxyProps extends VirtualProps {
-    proxy: Proxy
-}
+export type PAP = Partial<AP>;
 
-export type PP = ProxyProps;
+export type ProPAP = Promise<PAP>;
 
-export interface Actions{
-    onPath(pp: PP): void;
+export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
+
+export interface Actions extends BeWrittenActions{
+    //onPath(self: this): void;
     
 }

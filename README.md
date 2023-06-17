@@ -49,6 +49,10 @@ Still, progress has been made, and today, all the browsers do have good api supp
 
 (Sadly, the industry itself hasn't exactly made itself "worthy" of much HTML love from the browser vendors.  Most advertisements follow the same bad practices the rest of the development community follows, maybe even worse, delivering their advertisement via JS alone, I'm finding.  It seems like a catch-22 situation. What a waste (sigh).)
 
+Anyway, a strong case can be made that to benefit from caching, lazy loading, etc, in some cases it is better to reference the HTML for a web component via client-side fetch.
+
+So yes, this is yet another client-side include implementation, but one specifically for streaming declarative shadow DOM / declarative web components to the browser.
+
 ## Security
 
 It should be noted that *be-written* also has rudimentary support for import maps, as well as a custom link preload solution containing an onerror attribute.  This in fact forms the cornerstone of the [security checks](https://github.com/bahrus/be-written#what-about-security), to prevent an attribute that might be corrupted via an XSS attack to reference any url arbitrarily.  Only url's that are resolved by import maps and/or link preload (or any other value of rel, as long as the link tag was able to obtain an onerror attribute) can be imported via be-importing (and CSP can also help here).
@@ -95,11 +99,7 @@ The "once" setting allows us have repeated instances of the web component, inclu
 
 ... only downloads the resource once, and (using loosely coupled functionality not discussed here) only defines one custom element.
 
-be-importing also adds some additional support to make switching back and forth between bundling / no bundling (either statically or dynamically) easy to manage [TODO].
 
-A strong case can be made that to benefit from caching, lazy loading, etc, in some cases it is better to reference the HTML via client-side fetch.
-
-So yes, this is yet another client-side include implementation, but one specifically for streaming declarative shadow DOM / declarative web components to the browser.
 
 ## Working example:
 
