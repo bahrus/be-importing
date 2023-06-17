@@ -8,7 +8,7 @@
 		"strict": true,
 	},
 	"files":[
-		"be-importing2.ts"
+		"be-importing.ts"
 	],
 	"exclude":[
 		"node_modules"

@@ -1,32 +1,29 @@
-import { BeWritten, virtualProps, proxyPropDefaults as BWProxyPropDefaults, actions, } from 'be-written/be-written.js';
+import { BeWritten, beWrittenPropDefaults, BeWrittenActions } from 'be-written/be-written.js';
+import { XE } from 'xtal-element/XE.js';
+import { propDefaults } from 'be-enhanced/BE.js';
 import { register } from 'be-hive/register.js';
-import { define } from 'be-decorated/DE.js';
 export class BeImporting extends BeWritten {
 }
+export const beImportingPropDefaults = {
+    ...beWrittenPropDefaults,
+    between: ['<!--begin-->', '<!--end-->'],
+    shadowRootMode: 'open',
+    once: true,
+};
 const tagName = 'be-importing';
 const ifWantsToBe = 'importing';
 const upgrade = '*';
-export const proxyPropDefaults = {
-    ...BWProxyPropDefaults,
-    "between": ["<!--begin-->", "<!--end-->"],
-    "shadowRoot": "open",
-    "once": true
-};
-define({
+const xe = new XE({
     config: {
         tagName,
         propDefaults: {
-            ifWantsToBe,
-            upgrade,
-            virtualProps,
-            primaryProp: 'from',
-            proxyPropDefaults
+            ...propDefaults,
+            ...beImportingPropDefaults
         },
-        actions: actions
+        actions: {
+            ...BeWrittenActions
+        }
     },
-    complexPropDefaults: {
-        controller: BeImporting
-    }
+    superclass: BeImporting
 });
 register(ifWantsToBe, upgrade, tagName);
-import('be-having/be-having.js');

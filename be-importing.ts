@@ -1,48 +1,38 @@
-import {BeWritten, 
-    virtualProps, 
-    proxyPropDefaults as BWProxyPropDefaults, 
-    actions,
-} from 'be-written/be-written.js';
-import {
-    Actions
-} from 'be-written/types.js';
-import {ActionExt} from 'be-decorated/types';
+import {BeWritten, beWrittenPropDefaults, BeWrittenActions } from 'be-written/be-written.js';
+import {Actions, AllProps, AP, PAP, ProPAP, POA} from './types';
+import {XE} from 'xtal-element/XE.js';
+import {BE, propDefaults, propInfo} from 'be-enhanced/BE.js';
 import {register} from 'be-hive/register.js';
-import { PPP, PP, VirtualProps } from '../be-written/types';
-import {define, BeDecoratedProps} from 'be-decorated/DE.js';
-export class BeImporting extends BeWritten{}
+
+export class BeImporting extends BeWritten implements Actions{
+
+}
+
+export interface BeImporting extends AllProps{}
+
+export const beImportingPropDefaults = {
+    ...beWrittenPropDefaults,
+    between: ['<!--begin-->', '<!--end-->'],
+    shadowRootMode: 'open',
+    once: true,
+} as PAP;
 
 const tagName = 'be-importing';
-
 const ifWantsToBe = 'importing';
-
 const upgrade = '*';
 
-export const proxyPropDefaults = {
-    ...BWProxyPropDefaults,
-    "between": ["<!--begin-->", "<!--end-->"],
-    "shadowRoot": "open",
-    "once": true
-} as PPP;
-
-
-define<PP & BeDecoratedProps<PP, Actions>, Actions>({
+const xe = new XE<AP, Actions>({
     config:{
         tagName,
         propDefaults:{
-            ifWantsToBe,
-            upgrade,
-            virtualProps,
-            primaryProp: 'from',
-            proxyPropDefaults
+            ...propDefaults,
+            ...beImportingPropDefaults
         },
-        actions: actions as Partial<{[key in keyof Actions]: ActionExt<PP & BeDecoratedProps<PP, Actions>, Actions>}>
+        actions: {
+            ...BeWrittenActions
+        }
     },
-    complexPropDefaults: {
-        controller: BeImporting
-    }
+    superclass: BeImporting
 });
 
 register(ifWantsToBe, upgrade, tagName);
-
-import('be-having/be-having.js');
