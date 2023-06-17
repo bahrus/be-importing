@@ -6,10 +6,9 @@
 		"experimentalDecorators": false,
 		"newLine": "LF",
 		"strict": true,
-		"watch": true
 	},
 	"files":[
-		"be-importing.ts"
+		"be-importing2.ts"
 	],
 	"exclude":[
 		"node_modules"

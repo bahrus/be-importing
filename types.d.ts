@@ -1,6 +1,6 @@
 import {
     EndUserProps as BeWrittenEndUserProps,
-    VirtualProps as BeWrittenVirtualProps,
+    AllProps as BeWrittenAllProps,
     Actions as BeWrittenActions,
 } from 'be-written/types';
 
@@ -8,7 +8,7 @@ export interface EndUserProps extends BeWrittenEndUserProps{
     baseCDN?: string;
 }
 
-export interface VirtualProps extends EndUserProps, BeWrittenVirtualProps{}
+export interface AllProps extends EndUserProps{}
 
 export type Proxy = Element & VirtualProps;
 
