@@ -27,16 +27,16 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-active": "0.0.49",
-    "be-enhanced": "0.0.29",
-    "be-hive": "0.0.104",
-    "be-written": "0.0.31",
-    "trans-render": "0.0.689",
-    "xtal-element": "0.0.567"
+    "be-active": "0.0.50",
+    "be-enhanced": "0.0.30",
+    "be-hive": "0.0.106",
+    "be-written": "0.0.32",
+    "trans-render": "0.0.690",
+    "xtal-element": "0.0.568"
   },
   "devDependencies": {
     "may-it-serve": "0.0.5",
-    "@playwright/test": "1.35.0"
+    "@playwright/test": "1.35.1"
   },
   "repository": {
     "type": "git",
