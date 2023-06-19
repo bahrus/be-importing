@@ -7,21 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-
-    <xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html>
+    <link id=xtal-side-nav/root.html 
+    rel=preload as=fetch 
+    href=https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.112/root.html 
+    onblur=console.error(href)> 
+    <xtal-side-nav enh-by-be-importing=xtal-side-nav/root.html>
         <section style='color:white'>
             <div>Menu Item 1</div>
             <div>Menu Item 2</div>
         </section>
     </xtal-side-nav>
-    <div id=target></div>
     <script type=importmap>{
         "imports":{
-            "xtal-side-nav/": "https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.106/"
+            "xtal-side-nav/": "https://cdn.jsdelivr.net/npm/xtal-side-nav@0.0.112/"
         }
     }</script>
     <script type=module>
-        import 'https://esm.run/be-importing@0.0.47';
+        import 'https://esm.run/be-importing@0.0.63';
     </script>
 </body>
 </html>
