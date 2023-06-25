@@ -27,12 +27,12 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-active": "0.0.51",
-    "be-enhanced": "0.0.31",
-    "be-hive": "0.0.107",
-    "be-written": "0.0.33",
-    "trans-render": "0.0.690",
-    "xtal-element": "0.0.569"
+    "be-active": "0.0.52",
+    "be-enhanced": "0.0.33",
+    "be-hive": "0.0.109",
+    "be-written": "0.0.34",
+    "trans-render": "0.0.693",
+    "xtal-element": "0.0.571"
   },
   "devDependencies": {
     "may-it-serve": "0.0.5",
