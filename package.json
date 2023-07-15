@@ -15,7 +15,8 @@
     "test": "playwright test",
     "package-check": "package-check",
     "serve": "node node_modules/may-it-serve/serve.js",
-    "safari": "npx playwright wk http://localhost:3030"
+    "safari": "npx playwright wk http://localhost:3030",
+    "update": "ncu -u && npm install"
   },
   "exports": {
     ".": "./be-importing.js",
@@ -27,16 +28,16 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-active": "0.0.51",
-    "be-enhanced": "0.0.31",
-    "be-hive": "0.0.107",
-    "be-written": "0.0.33",
-    "trans-render": "0.0.690",
-    "xtal-element": "0.0.569"
+    "be-active": "0.0.52",
+    "be-enhanced": "0.0.35",
+    "be-hive": "0.0.114",
+    "be-written": "0.0.36",
+    "trans-render": "0.0.696",
+    "xtal-element": "0.0.573"
   },
   "devDependencies": {
     "may-it-serve": "0.0.5",
-    "@playwright/test": "1.35.1"
+    "@playwright/test": "1.36.1"
   },
   "repository": {
     "type": "git",
