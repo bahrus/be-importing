@@ -68,7 +68,7 @@ It often makes sense to want to bundle the HTML-based web component definitions 
 ```TypeScript
 {
     between: ["<!--begin-->", "<!--end-->"],
-    shadowRoot: "open",
+    shadowRootMode: "open",
     once: true
 };
 ```
@@ -191,8 +191,9 @@ An alternative way of mapping the bare import specifier of the html file to a pr
 
 [Demo](https://codepen.io/bahrus/pen/abjdQWW)
 
-
 ## Viewing Locally
+
+Any web server that can serve static files will do but...
 
 1.  Install git.
 2.  Fork/clone this repo.
