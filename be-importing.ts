@@ -3,7 +3,6 @@ import {Actions, AllProps, AP, PAP, ProPAP, POA} from './types';
 import {XE} from 'xtal-element/XE.js';
 import {BE, propDefaults, propInfo} from 'be-enhanced/BE.js';
 import {BEConfig} from 'be-enhanced/types';
-import {register} from 'be-hive/register.js';
 
 export class BeImporting extends BeWritten implements Actions{
     static  override get beConfig(){
@@ -23,9 +22,8 @@ export const beImportingPropDefaults = {
     once: true,
 } as PAP;
 
-const tagName = 'be-importing';
-const ifWantsToBe = 'importing';
-const upgrade = '*';
+export const tagName = 'be-importing';
+
 
 const xe = new XE<AP, Actions>({
     config:{
@@ -43,6 +41,3 @@ const xe = new XE<AP, Actions>({
     },
     superclass: BeImporting
 });
-
-register(ifWantsToBe, upgrade, tagName);
-import('be-active/be-active.js');
