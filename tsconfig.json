@@ -8,7 +8,7 @@
 		"strict": true,
 	},
 	"files":[
-		"behivior.ts"
+		"index.ts"
 	],
 	"exclude":[
 		"node_modules"

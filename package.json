@@ -20,7 +20,9 @@
   },
   "exports": {
     ".": "./be-importing.js",
-    "./be-importing.js": "./be-importing.js"
+    "./be-importing.js": "./be-importing.js",
+    "./behivior.js": "./behivior.js",
+    "./index.js": "./index.js"
   },
   "files": [
     "*.js",
