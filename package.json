@@ -2,8 +2,8 @@
   "name": "be-importing",
   "version": "0.0.69",
   "description": "Import Static, Declarative HTML Web Components with Streaming HTML.",
-  "main": "be-importing.js",
-  "module": "be-importing.js",
+  "main": "index.js",
+  "module": "index.js",
   "keywords": [
     "web-components",
     "web-component",
@@ -30,11 +30,11 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-enhanced": "0.0.60",
-    "be-hive": "0.0.131",
-    "be-written": "0.0.40",
-    "trans-render": "0.0.728",
-    "xtal-element": "0.0.585"
+    "be-enhanced": "0.0.61",
+    "be-hive": "0.0.132",
+    "be-written": "0.0.41",
+    "trans-render": "0.0.730",
+    "xtal-element": "0.0.587"
   },
   "devDependencies": {
     "may-it-serve": "0.0.6",
