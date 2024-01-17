@@ -26,6 +26,7 @@
   },
   "files": [
     "*.js",
+    "*.mjs",
     "types.d.ts"
   ],
   "types": "types.d.ts",
