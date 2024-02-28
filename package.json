@@ -31,15 +31,15 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-enhanced": "0.0.68",
-    "be-hive": "0.0.137",
-    "be-written": "0.0.45",
-    "trans-render": "0.0.739",
-    "xtal-element": "0.0.596"
+    "be-enhanced": "0.0.69",
+    "be-hive": "0.0.138",
+    "be-written": "0.0.46",
+    "trans-render": "0.0.741",
+    "xtal-element": "0.0.598"
   },
   "devDependencies": {
     "may-it-serve": "0.0.6",
-    "@playwright/test": "1.41.2"
+    "@playwright/test": "1.42.0"
   },
   "repository": {
     "type": "git",
