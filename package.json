@@ -22,7 +22,8 @@
     ".": "./be-importing.js",
     "./be-importing.js": "./be-importing.js",
     "./behivior.js": "./behivior.js",
-    "./index.js": "./index.js"
+    "./index.js": "./index.js",
+    "./makeXtalElement.mjs": "./makeXtalElement.mjs"
   },
   "files": [
     "*.js",
