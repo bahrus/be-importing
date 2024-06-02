@@ -1,6 +1,6 @@
 {
   "name": "be-importing",
-  "version": "0.0.78",
+  "version": "0.0.79",
   "description": "Import Static, Declarative HTML Web Components with Streaming HTML.",
   "main": "index.js",
   "module": "index.js",
