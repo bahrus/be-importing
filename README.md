@@ -1,4 +1,4 @@
-# be-importing
+# enh-be-importing
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/be-importing)
 [![Playwright Tests](https://github.com/bahrus/be-importing/actions/workflows/CI.yml/badge.svg?branch=baseline)](https://github.com/bahrus/be-importing/actions/workflows/CI.yml)
@@ -11,7 +11,7 @@
 ### Sample syntax
 
 ```html
-<xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html>
+<xtal-side-nav enh-be-importing=xtal-side-nav/xtal-side-nav.html>
     <section style='color:white'>
         <div>Menu Item 1</div>
         <div>Menu Item 2</div>
@@ -55,7 +55,7 @@ So yes, this is yet another client-side include implementation, but one specific
 
 ## Security
 
-It should be noted that *be-written* also has rudimentary support for import maps, as well as a custom link preload solution containing an onerror attribute.  This in fact forms the cornerstone of the [security checks](https://github.com/bahrus/be-written#what-about-security), to prevent an attribute that might be corrupted via an XSS attack to reference any url arbitrarily.  Only url's that are resolved by import maps and/or link preload (or any other value of rel, as long as the link tag was able to obtain an onerror attribute) can be imported via be-importing (and CSP can also help here).
+It should be noted that *be-written* also has rudimentary support for import maps, as well as a custom link preload solution containing an onerror attribute.  This in fact forms the cornerstone of the [security checks](https://github.com/bahrus/be-written#what-about-security), to prevent an attribute that might be corrupted via an XSS attack to reference any url arbitrarily.  Only url's that are resolved by import maps and/or link preload (or any other value of rel, as long as the link tag was able to obtain an onerror attribute) can be imported via enh-be-importing (and CSP can also help here).
 
 ## Bundling
 
@@ -77,19 +77,19 @@ The "between" setting allows us to create web components as html files that can 
 
 But more importantly, it also solves some difficult to overcome obstacles as far as managing where the light children should go, and the ability to pass properties down to the custom element ahead of the downloading completing.  And also allowing the same file to be used as an embedded server-side include in scenarios where the benefits outweigh the costs of that approach.
 
-The "shadowRoot" setting allows us to specify whether to wrap the imported content inside a shadowRoot.  This is "off" by default for be-written, but defaults to "open" for be-importing, as that is more typically desired for web components.
+The "shadowRoot" setting allows us to specify whether to wrap the imported content inside a shadowRoot.  This is "off" by default for be-written, but defaults to "open" for enh-be-importing, as that is more typically desired for web components.
 
 The "once" setting allows us have repeated instances of the web component, including the import statement, without having to worry that multiple requests to the same resource will be made:
 
 ```html
-<xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html>
+<xtal-side-nav enh-be-importing=xtal-side-nav/xtal-side-nav.html>
     <section style='color:white'>
         <div>Menu Item 1</div>
         <div>Menu Item 2</div>
     </section>
 </xtal-side-nav>
 ...
-<xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html>
+<xtal-side-nav enh-be-importing=xtal-side-nav/xtal-side-nav.html>
     <section style='color:white'>
         <div>Menu Item 3</div>
         <div>Menu Item 4</div>
@@ -106,7 +106,7 @@ The "once" setting allows us have repeated instances of the web component, inclu
 ### Using ES modules, import maps exclusively
 
 ```html
-<xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html>
+<xtal-side-nav enh-be-importing=xtal-side-nav/xtal-side-nav.html>
     <section style='color:white'>
         <div>Menu Item 1</div>
         <div>Menu Item 2</div>
@@ -137,7 +137,7 @@ The "once" setting allows us have repeated instances of the web component, inclu
 ### Using CDN:
 
 ```html
-<xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html>
+<xtal-side-nav enh-be-importing=xtal-side-nav/xtal-side-nav.html>
     <section style='color:white'>
         <div>Menu Item 1</div>
         <div>Menu Item 2</div>
@@ -154,7 +154,7 @@ The "once" setting allows us have repeated instances of the web component, inclu
 </script>
 ```
 
-Since be-importing is not a standard, CDN's have no out-of-the-box support for it, of course, thus the developer is burdened with specifying the import map base package location for where the HTML file can be found.
+Since enh-be-importing is not a standard, CDN's have no out-of-the-box support for it, of course, thus the developer is burdened with specifying the import map base package location for where the HTML file can be found.
 
 An alternative way of mapping the bare import specifier of the html file to a precise location is using the link preload tag:
 
@@ -172,7 +172,7 @@ An alternative way of mapping the bare import specifier of the html file to a pr
 <body>
     ...
 
-<xtal-side-nav be-importing=xtal-side-nav/xtal-side-nav.html>
+<xtal-side-nav enh-be-importing=xtal-side-nav/xtal-side-nav.html>
     <section style='color:white'>
         <div>Menu Item 1</div>
         <div>Menu Item 2</div>
