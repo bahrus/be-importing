@@ -34,8 +34,7 @@
     "be-enhanced": "0.0.96",
     "be-hive": "0.0.169",
     "be-written": "0.0.47",
-    "trans-render": "0.0.778",
-    "xtal-element": "0.0.604"
+    "trans-render": "0.0.778"
   },
   "devDependencies": {
     "may-it-serve": "0.0.6",

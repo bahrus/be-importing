@@ -1,43 +1,23 @@
-import {BeWritten, beWrittenPropDefaults, BeWrittenActions } from 'be-written/be-written.js';
-import {Actions, AllProps, AP, PAP, ProPAP, POA} from './types';
-import {XE} from 'xtal-element/XE.js';
-import {BE, propDefaults, propInfo} from 'be-enhanced/BE.js';
-import {BEConfig} from 'be-enhanced/types';
+import {BE, BEConfig} from 'be-enhanced/BE.js';
+import {Actions, AllProps, AP, PAP, ProPAP} from './types';
+import {IEnhancement,  BEAllProps} from 'trans-render/be/types';
+import {BeWritten} from 'be-written/be-written.js';
 
 export class BeImporting extends BeWritten implements Actions{
-    static  override get beConfig(){
-        return {
-            parse: true,
-            primaryProp: 'from'
-        } as BEConfig
+    static override config: BEConfig<AP & BEAllProps, Actions & IEnhancement, any> = {
+        propDefaults: {
+            ...BeWritten.config.propDefaults,
+            between: ['<!--begin-->', '<!--end-->'],
+            shadowRootMode: 'open',
+            once: true,
+        },
+        propInfo: {
+            ...BeWritten.config.propInfo
+        },
+        actions: {
+            ...BeWritten.config.actions
+        }
     }
 }
 
-export interface BeImporting extends AllProps{}
-
-export const beImportingPropDefaults = {
-    ...beWrittenPropDefaults,
-    between: ['<!--begin-->', '<!--end-->'],
-    shadowRootMode: 'open',
-    once: true,
-} as PAP;
-
-export const tagName = 'be-importing';
-
-
-const xe = new XE<AP, Actions>({
-    config:{
-        tagName,
-        propDefaults:{
-            ...propDefaults,
-            ...beImportingPropDefaults
-        },
-        propInfo: {
-           ...propInfo,  
-        },
-        actions: {
-            ...BeWrittenActions
-        }
-    },
-    superclass: BeImporting
-});
+export interface BeImporting extends AP{}

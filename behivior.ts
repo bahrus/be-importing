@@ -1,8 +1,23 @@
-import {register} from 'be-hive/register.js';
-import {tagName } from './be-importing.js';
-import './be-importing.js';
+import {BeHive, EMC} from 'be-hive/be-hive.js';
+import {MountObserver, MOSE} from 'mount-observer/MountObserver.js';
 
-const ifWantsToBe = 'importing';
-const upgrade = '*';
+const base = 'be-importing';
+export const emc: EMC = {
+    base,
+    map: {
+        '0.0': 'from'
+    },
+    enhPropKey: 'beWritten',
+    importEnh: async () => {
+        const {BeImporting} = await import('./behance.js');
+        return BeImporting;
+    }
+};
 
-register(ifWantsToBe, upgrade, tagName);
+const mose = document.createElement('script') as MOSE<EMC>;
+mose.id = base;
+mose.synConfig = emc;
+
+MountObserver.synthesize(document, BeHive, mose);
+
+
