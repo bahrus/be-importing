@@ -35,7 +35,7 @@ With the advent of declarative shadow DOM, many useful web components that requi
 
 When the user loads an HTML page in their browser, served by an ancient web server, it streams.  This was engineered by Netscape/Apache in a fortnight(?), when even elite users had to suffer with 19,200 bit/s.  
 
-Three decades later, [two of the browser engines](https://caniuse.com/declarative-shadow-dom) have now enabled this streaming optimization, even for content that has style isolation (Shadow DOM), which is fantastic news!
+Three decades later, [all of the browser engines](https://caniuse.com/declarative-shadow-dom) have now enabled this streaming optimization, even for content that has style isolation (Shadow DOM), which is fantastic news!
 
 But what if we need a portion of the page to stream, for example as the content of that part of the page becomes out of date?  Or maybe the data for that portion of the page wasn't available at the time the page loaded?  
 
