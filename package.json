@@ -32,11 +32,11 @@
   ],
   "types": "types.d.ts",
   "dependencies": {
-    "be-enhanced": "0.0.96",
-    "be-hive": "0.0.169",
-    "be-written": "0.0.47",
-    "trans-render": "0.0.778",
-    "xtal-element": "0.0.604"
+    "be-enhanced": "0.0.100",
+    "be-hive": "0.0.178",
+    "be-written": "0.0.48",
+    "trans-render": "0.0.781",
+    "xtal-element": "0.0.607"
   },
   "devDependencies": {
     "may-it-serve": "0.0.6",

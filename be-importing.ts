@@ -3,7 +3,7 @@ import {Actions, AllProps, AP, PAP, ProPAP} from './types';
 import {IEnhancement,  BEAllProps} from 'trans-render/be/types';
 import {BeWritten} from 'be-written/be-written.js';
 
-export class BeImporting extends BeWritten implements Actions{
+class BeImporting extends BeWritten implements Actions{
     static override config: BEConfig<AP & BEAllProps, Actions & IEnhancement, any> = {
         propDefaults: {
             ...BeWritten.config.propDefaults,
@@ -20,4 +20,8 @@ export class BeImporting extends BeWritten implements Actions{
     }
 }
 
-export interface BeImporting extends AP{}
+interface BeImporting extends AP{}
+
+await BeImporting.bootUp();
+
+export {BeImporting}

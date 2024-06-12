@@ -1,5 +1,5 @@
 import { BeWritten } from 'be-written/be-written.js';
-export class BeImporting extends BeWritten {
+class BeImporting extends BeWritten {
     static config = {
         propDefaults: {
             ...BeWritten.config.propDefaults,
@@ -15,3 +15,5 @@ export class BeImporting extends BeWritten {
         }
     };
 }
+await BeImporting.bootUp();
+export { BeImporting };
