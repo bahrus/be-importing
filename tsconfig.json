@@ -6,6 +6,7 @@
 		"experimentalDecorators": false,
 		"newLine": "LF",
 		"strict": true,
+		"skipLibCheck": true
 	},
 	"files":[
 		"index.ts",

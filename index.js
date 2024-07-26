@@ -1,3 +1,3 @@
-import './behivior.js';
-import 'be-written/behivior.js';
+import './📥.js';
+import 'be-written/📜.js';
 import 'xtal-element/index.js';
