@@ -18,16 +18,20 @@ export function makeXtalElement<Props, Methods>(
         propInferenceCriteria,
         propInfo,
         shadowRootMode,
-        targetScope
+        targetScope,
+        mainTemplate
     } = xtalElementProps;
     if(scripts){
+        
         console.log(String.raw `<template onload=blow-dry-to-head><script type=module>
 ${scripts.map(x => x.toString() + '\n\r').join('\n\r')};
 ${className && inherits ? `customElements.define('${inherits}', ${className})` : ''}
 </script></template>
 `);
     }
-
+    const end = String.raw `<!--end--><!--end-->`;
+    const split = (mainTemplate as any as string).split(end);
+    console.log(split[0]);
     console.log('<xtal-element');
 
     if(inherits) console.log(` inherits=${inherits} `);
@@ -59,4 +63,6 @@ ${className && inherits ? `customElements.define('${inherits}', ${className})` :
         console.log(` aka=${aka} `);
     }
     console.log('></xtal-element>');
+    console.log(end);
+    console.log(split[1]);
 }
