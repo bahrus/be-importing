@@ -1,5 +1,4 @@
-import { BeHive } from 'be-hive/be-hive.js';
-import { MountObserver } from 'mount-observer/MountObserver.js';
+import { BeHive, seed, MountObserver } from 'be-hive/be-hive.js';
 const base = 'be-importing';
 export const emc = {
     base,
@@ -12,7 +11,5 @@ export const emc = {
         return BeImporting;
     }
 };
-const mose = document.createElement('script');
-mose.id = base;
-mose.synConfig = emc;
+const mose = seed(emc);
 MountObserver.synthesize(document, BeHive, mose);
