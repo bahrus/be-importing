@@ -6,13 +6,14 @@ export class HTMLElement {
  * @template Props
  * @template Actions
  * @param {EndUserProps<Props, Actions>} xtalElementProps 
- * @param {*} scripts 
- * @param {*} className 
+ * @param {((...data: any) => void)=} writer
+ * @param {Array<string>=} scripts 
+ * @param {string=} className 
  */
-export function makeXtalElement(xtalElementProps, scripts, className) {
+export function makeXtalElement(xtalElementProps, writer=console.log, scripts, className) {
     const { inherits, propDefaults, xform, lcXform, aka, actions, fa, inferProps, propInferenceCriteria, propInfo, shadowRootMode, targetScope, mainTemplate } = xtalElementProps;
     if (scripts) {
-        console.log(String.raw `<template onload=blow-dry-to-head><script type=module>
+        writer(String.raw `<template onload=blow-dry-to-head><script type=module>
 ${scripts.map(x => x.toString() + '\n\r').join('\n\r')};
 ${className && inherits ? `customElements.define('${inherits}', ${className})` : ''}
 </script></template>
@@ -21,38 +22,38 @@ ${className && inherits ? `customElements.define('${inherits}', ${className})` :
     if(typeof mainTemplate !== 'string') throw 400;
     const end = String.raw `<!--end--><!--end-->`;
     const split = mainTemplate.split(end);
-    console.log(split[0]);
-    console.log('<xtal-element');
+    writer(split[0]);
+    writer('<xtal-element');
     if (inherits)
-        console.log(` inherits=${inherits} `);
+        writer(` inherits=${inherits} `);
     if (propDefaults) {
-        console.log(` prop-defaults='${JSON.stringify(propDefaults, undefined, 3)}'`);
+        writer(` prop-defaults='${JSON.stringify(propDefaults, undefined, 3)}'`);
     }
     if (propInfo) {
-        console.log(` prop-info='${JSON.stringify(propInfo, undefined, 3)}' `);
+        writer(` prop-info='${JSON.stringify(propInfo, undefined, 3)}' `);
     }
     if (xform) {
-        console.log(` xform='${JSON.stringify(xform, undefined, 3)}' `);
+        writer(` xform='${JSON.stringify(xform, undefined, 3)}' `);
     }
     if (lcXform) {
-        console.log(` lc-xform='${JSON.stringify(lcXform, undefined, 3)}' `);
+        writer(` lc-xform='${JSON.stringify(lcXform, undefined, 3)}' `);
     }
     if (actions) {
-        console.log(` actions='${JSON.stringify(actions, undefined, 3)}' `);
+        writer(` actions='${JSON.stringify(actions, undefined, 3)}' `);
     }
     if (fa) {
-        console.log(` form-associated `);
+        writer(` form-associated `);
     }
     if (inferProps) {
-        console.log(` infer-props `);
+        writer(` infer-props `);
     }
     if (shadowRootMode) {
-        console.log(` shadow-root-mode=${shadowRootMode} `);
+        writer(` shadow-root-mode=${shadowRootMode} `);
     }
     if (aka) {
-        console.log(` aka=${aka} `);
+        writer(` aka=${aka} `);
     }
-    console.log('></xtal-element>');
-    console.log(end);
-    console.log(split[1]);
+    writer('></xtal-element>');
+    writer(end);
+    writer(split[1]);
 }
