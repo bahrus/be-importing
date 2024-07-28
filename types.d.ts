@@ -1,3 +1,7 @@
+export {Localizer} from "./node_modules/trans-render/lib/mixins/types";
+export {XForm} from "./node_modules/trans-render/types";
+export {Actions as A, PropInfo} from './node_modules/trans-render/froop/types';
+
 import {
     EndUserProps as BeWrittenEndUserProps,
     AllProps as BeWrittenAllProps,
