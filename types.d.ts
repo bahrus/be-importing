@@ -6,8 +6,8 @@ import {
     EndUserProps as BeWrittenEndUserProps,
     AllProps as BeWrittenAllProps,
     Actions as BeWrittenActions,
-} from 'be-written/types';
-import { ActionOnEventConfigs } from "trans-render/froop/types";
+} from './node_modules/be-written/types';
+import { ActionOnEventConfigs } from "./node_modules/trans-render/froop/types";
 
 export interface EndUserProps extends BeWrittenEndUserProps{
     baseCDN?: string;
