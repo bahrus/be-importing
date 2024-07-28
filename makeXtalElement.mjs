@@ -11,7 +11,11 @@ export class HTMLElement {
  * @param {string=} className 
  */
 export function makeXtalElement(xtalElementProps, writer=console.log, scripts, className) {
-    const { inherits, propDefaults, xform, lcXform, aka, actions, fa, inferProps, propInferenceCriteria, propInfo, shadowRootMode, targetScope, mainTemplate } = xtalElementProps;
+    const { 
+        inherits, propDefaults, xform, lcXform, aka, actions, fa, inferProps, 
+        propInferenceCriteria, propInfo, shadowRootMode, targetScope, mainTemplate,
+        compacts 
+    } = xtalElementProps;
     if (scripts) {
         writer(String.raw `<template onload=blow-dry-to-head><script type=module>
 ${scripts.map(x => x.toString() + '\n\r').join('\n\r')};
@@ -41,6 +45,9 @@ ${className && inherits ? `customElements.define('${inherits}', ${className})` :
     if (actions) {
         writer(` actions='${JSON.stringify(actions, undefined, 3)}' `);
     }
+    if(compacts){
+        writer(` compacts='${JSON.stringify(compacts, undefined, 3)}'`);
+    }
     if (fa) {
         writer(` form-associated `);
     }
@@ -53,6 +60,7 @@ ${className && inherits ? `customElements.define('${inherits}', ${className})` :
     if (aka) {
         writer(` aka=${aka} `);
     }
+
     writer('></xtal-element>');
     writer(end);
     writer(split[1]);
