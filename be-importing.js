@@ -1,3 +1,4 @@
+// @ts-check
 import { BeWritten } from 'be-written/be-written.js';
 class BeImporting extends BeWritten {
     static config = {

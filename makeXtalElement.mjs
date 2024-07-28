@@ -1,7 +1,16 @@
+// @ts-check
+/** @import {EndUserProps} from './node_modules/xtal-element/types.d.ts' */
 export class HTMLElement {
 }
+/**
+ * @template Props
+ * @template Actions
+ * @param {EndUserProps<Props, Actions>} xtalElementProps 
+ * @param {*} scripts 
+ * @param {*} className 
+ */
 export function makeXtalElement(xtalElementProps, scripts, className) {
-    const { inherits, propDefaults, xform, lcXform, aka, actions, formAss, inferProps, propInferenceCriteria, propInfo, shadowRootMode, targetScope, mainTemplate } = xtalElementProps;
+    const { inherits, propDefaults, xform, lcXform, aka, actions, fa, inferProps, propInferenceCriteria, propInfo, shadowRootMode, targetScope, mainTemplate } = xtalElementProps;
     if (scripts) {
         console.log(String.raw `<template onload=blow-dry-to-head><script type=module>
 ${scripts.map(x => x.toString() + '\n\r').join('\n\r')};
@@ -9,6 +18,7 @@ ${className && inherits ? `customElements.define('${inherits}', ${className})` :
 </script></template>
 `);
     }
+    if(typeof mainTemplate !== 'string') throw 400;
     const end = String.raw `<!--end--><!--end-->`;
     const split = mainTemplate.split(end);
     console.log(split[0]);
@@ -30,7 +40,7 @@ ${className && inherits ? `customElements.define('${inherits}', ${className})` :
     if (actions) {
         console.log(` actions='${JSON.stringify(actions, undefined, 3)}' `);
     }
-    if (formAss) {
+    if (fa) {
         console.log(` form-associated `);
     }
     if (inferProps) {
