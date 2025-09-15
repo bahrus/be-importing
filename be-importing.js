@@ -11,6 +11,9 @@ class BeImporting extends BeWritten {
         propInfo: {
             ...BeWritten.config.propInfo
         },
+        compacts: {
+            ...BeWritten.config.compacts,
+        },
         actions: {
             ...BeWritten.config.actions
         }

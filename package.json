@@ -34,7 +34,7 @@
   "dependencies": {
     "be-enhanced": "0.0.186",
     "be-hive": "0.0.265",
-    "be-written": "0.0.57",
+    "be-written": "0.0.58",
     "trans-render": "0.0.956",
     "xtal-element": "0.0.631"
   },
