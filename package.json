@@ -14,7 +14,7 @@
   "scripts": {
     "test": "playwright test",
     "package-check": "package-check",
-    "serve": "node node_modules/may-it-serve/serve.js",
+    "serve": "node ./node_modules/spa-ssi/serve.js",
     "safari": "npx playwright wk http://localhost:3030",
     "update": "ncu -u && npm install"
   },
@@ -39,7 +39,7 @@
     "xtal-element": "0.0.633"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.11",
+    "spa-ssi": "0.0.17",
     "@playwright/test": "1.55.0"
   },
   "repository": {
