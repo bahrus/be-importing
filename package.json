@@ -15,7 +15,7 @@
     "test": "playwright test",
     "package-check": "package-check",
     "serve": "node ./node_modules/spa-ssi/serve.js",
-    "safari": "npx playwright wk http://localhost:3030",
+    "safari": "npx playwright wk http://localhost:8000",
     "update": "ncu -u && npm install"
   },
   "exports": {
