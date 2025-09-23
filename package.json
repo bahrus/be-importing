@@ -39,7 +39,7 @@
     "xtal-element": "0.0.633"
   },
   "devDependencies": {
-    "spa-ssi": "0.0.17",
+    "spa-ssi": "0.0.18",
     "@playwright/test": "1.55.0"
   },
   "repository": {
