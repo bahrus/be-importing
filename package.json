@@ -35,12 +35,12 @@
     "be-enhanced": "0.0.188",
     "be-hive": "0.0.266",
     "be-written": "0.0.62",
-    "trans-render": "0.0.958",
+    "trans-render": "0.0.959",
     "xtal-element": "0.0.633"
   },
   "devDependencies": {
-    "spa-ssi": "0.0.18",
-    "@playwright/test": "1.55.0"
+    "spa-ssi": "0.0.23",
+    "@playwright/test": "1.55.1"
   },
   "repository": {
     "type": "git",
