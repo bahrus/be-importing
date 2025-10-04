@@ -1,5 +1,5 @@
 // @ts-check
-/** @import {EndUserProps} from './node_modules/xtal-element/types.d.ts' */
+/** @import {EndUserProps} from './ts-refs/xtal-element/types.d.ts' */
 export class HTMLElement {
 }
 /**
@@ -14,7 +14,7 @@ export function makeXtalElement(xtalElementProps, writer=console.log, scripts, c
     const { 
         inherits, propDefaults, xform, lcXform, aka, actions, fa, inferProps, 
         propInferenceCriteria, propInfo, shadowRootMode, targetScope, mainTemplate,
-        compacts 
+        compacts, 
     } = xtalElementProps;
     if (scripts) {
         writer(String.raw `<template onload=blow-dry-to-head><script type=module>
