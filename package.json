@@ -34,9 +34,9 @@
   "dependencies": {
     "be-enhanced": "0.0.189",
     "be-hive": "0.0.267",
-    "be-written": "0.0.63",
+    "be-written": "0.0.64",
     "trans-render": "0.0.960",
-    "xtal-element": "0.0.634"
+    "xtal-element": "0.0.635"
   },
   "devDependencies": {
     "spa-ssi": "0.0.23",
